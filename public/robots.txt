@@ -1,0 +1,6 @@
+# Robots.txt for SkyOne International Courier Service
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://skyonecourier.com/sitemap.xml

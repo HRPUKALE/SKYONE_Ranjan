@@ -1,0 +1,6 @@
+{
+  "name": "SkyOne International Courier Service",
+  "description": "SkyOne International Courier Service provides reliable international courier, cargo, express delivery and shipment tracking solutions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

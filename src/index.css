@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --color-skyone-blue: #024BB2;
+  --color-skyone-blue-hover: #003B91;
+  --color-skyone-blue-dark: #002A6B;
+  --color-skyone-red: #E5192D;
+  --color-skyone-red-hover: #CC1325;
+  --color-skyone-navy: #0A1120;
+  
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Cabinet Grotesk", "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+/* Reduced motion accessibility support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
