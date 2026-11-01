@@ -14,12 +14,13 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
     email: '',
     phone: '',
     pickupCountry: 'India',
-    pickupCity: 'Mumbai',
-    destinationCountry: 'United Kingdom',
-    destinationCity: 'London',
+    pickupState: 'Kerala',
+    pickupCity: 'Kochi',
+    destinationCountry: 'United Arab Emirates',
+    destinationCity: 'Dubai',
     shipmentType: 'parcel',
     weight: '3.5',
-    dimensions: '30x20x15 cm',
+    dimensions: '',
     preferredDate: '',
     message: ''
   });
@@ -157,33 +158,18 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                 )}
 
                 {/* Sender & Contact Info */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="e.g. Rajesh Kumar"
-                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
-                      Company / Organization
-                    </label>
-                    <input
-                      type="text"
-                      value={formData.company}
-                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      placeholder="e.g. Apex Exports Ltd."
-                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
-                    />
-                  </div>
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder="e.g. Rajesh Kumar"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
+                  />
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -196,7 +182,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="rajesh@company.com"
+                      placeholder="rajesh@example.com"
                       className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
                     />
                   </div>
@@ -221,12 +207,12 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                   <div className="text-xs font-extrabold text-[#024BB2] uppercase tracking-wider mb-3">
                     Route Information
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-3">
                     <div>
                       <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
-                        Pickup Country &amp; City *
+                        Pickup Location (Country, State &amp; City) *
                       </label>
-                      <div className="grid grid-cols-2 gap-2">
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                         <input
                           type="text"
                           required
@@ -238,9 +224,17 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                         <input
                           type="text"
                           required
+                          value={formData.pickupState || ''}
+                          onChange={(e) => setFormData({ ...formData, pickupState: e.target.value })}
+                          placeholder="State (e.g. Kerala)"
+                          className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
+                        />
+                        <input
+                          type="text"
+                          required
                           value={formData.pickupCity}
                           onChange={(e) => setFormData({ ...formData, pickupCity: e.target.value })}
-                          placeholder="City (e.g. Mumbai)"
+                          placeholder="City (e.g. Kochi)"
                           className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
                         />
                       </div>
@@ -248,15 +242,15 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
 
                     <div>
                       <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
-                        Destination Country &amp; City *
+                        Destination (Country &amp; City) *
                       </label>
-                      <div className="grid grid-cols-2 gap-2">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         <input
                           type="text"
                           required
                           value={formData.destinationCountry}
                           onChange={(e) => setFormData({ ...formData, destinationCountry: e.target.value })}
-                          placeholder="Country (e.g. UK)"
+                          placeholder="Country (e.g. UAE / UK)"
                           className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
                         />
                         <input
@@ -264,7 +258,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                           required
                           value={formData.destinationCity}
                           onChange={(e) => setFormData({ ...formData, destinationCity: e.target.value })}
-                          placeholder="City (e.g. London)"
+                          placeholder="City (e.g. Dubai / London)"
                           className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
                         />
                       </div>
@@ -277,7 +271,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                   <div className="text-xs font-extrabold text-[#024BB2] uppercase tracking-wider mb-3">
                     Consignment Specifications
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                       <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
                         Shipment Type
@@ -289,7 +283,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                       >
                         <option value="parcel">Commercial Parcel</option>
                         <option value="document">Priority Document</option>
-                        <option value="air-cargo">Air Freight Cargo (&gt;50kg)</option>
+                        <option value="household-parcel">Household Parcel</option>
                         <option value="e-commerce">E-Commerce Goods</option>
                       </select>
                     </div>
@@ -305,19 +299,6 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                         value={formData.weight}
                         onChange={(e) => setFormData({ ...formData, weight: e.target.value })}
                         placeholder="Weight in kg"
-                        className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
-                        Dimensions (LxWxH)
-                      </label>
-                      <input
-                        type="text"
-                        value={formData.dimensions}
-                        onChange={(e) => setFormData({ ...formData, dimensions: e.target.value })}
-                        placeholder="e.g. 40x30x20 cm"
                         className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
                       />
                     </div>

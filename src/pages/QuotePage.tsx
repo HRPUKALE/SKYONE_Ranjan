@@ -10,12 +10,13 @@ export const QuotePage: React.FC = () => {
     email: '',
     phone: '',
     pickupCountry: 'India',
-    pickupCity: 'Mumbai',
-    destinationCountry: 'United Kingdom',
-    destinationCity: 'London',
+    pickupState: 'Kerala',
+    pickupCity: 'Kochi',
+    destinationCountry: 'United Arab Emirates',
+    destinationCity: 'Dubai',
     shipmentType: 'parcel',
     weight: '2.5',
-    dimensions: '30x20x15 cm',
+    dimensions: '',
     preferredDate: '',
     message: ''
   });
@@ -141,9 +142,9 @@ export const QuotePage: React.FC = () => {
                 {/* Section 1: Contact */}
                 <div>
                   <h3 className="text-sm font-bold uppercase tracking-wider text-[#024BB2] mb-3">
-                    1. Sender &amp; Company Contact
+                    1. Sender Contact Details
                   </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-4">
                     <div>
                       <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
                         Full Name *
@@ -158,45 +159,34 @@ export const QuotePage: React.FC = () => {
                       />
                     </div>
 
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
-                        Company Name
-                      </label>
-                      <input
-                        type="text"
-                        value={formData.company}
-                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        placeholder="e.g. Global Tech Exports"
-                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
-                      />
-                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
+                          Email Address *
+                        </label>
+                        <input
+                          type="email"
+                          required
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          placeholder="ramesh@example.com"
+                          className="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
+                        />
+                      </div>
 
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="ramesh@company.com"
-                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
-                        Phone / WhatsApp *
-                      </label>
-                      <input
-                        type="tel"
-                        required
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="+91 98200 88888"
-                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
-                      />
+                      <div>
+                        <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
+                          Phone / WhatsApp *
+                        </label>
+                        <input
+                          type="tel"
+                          required
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          placeholder="+91 98200 88888"
+                          className="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -206,12 +196,12 @@ export const QuotePage: React.FC = () => {
                   <h3 className="text-sm font-bold uppercase tracking-wider text-[#024BB2] mb-3">
                     2. Shipment Routing
                   </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-4">
                     <div>
                       <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
-                        Pickup (Country &amp; City) *
+                        Pickup Location (Country, State &amp; City) *
                       </label>
-                      <div className="grid grid-cols-2 gap-2">
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                         <input
                           type="text"
                           required
@@ -223,9 +213,17 @@ export const QuotePage: React.FC = () => {
                         <input
                           type="text"
                           required
+                          value={formData.pickupState || ''}
+                          onChange={(e) => setFormData({ ...formData, pickupState: e.target.value })}
+                          placeholder="State (e.g. Kerala)"
+                          className="w-full px-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
+                        />
+                        <input
+                          type="text"
+                          required
                           value={formData.pickupCity}
                           onChange={(e) => setFormData({ ...formData, pickupCity: e.target.value })}
-                          placeholder="City (e.g. Mumbai)"
+                          placeholder="City (e.g. Kochi)"
                           className="w-full px-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
                         />
                       </div>
@@ -235,13 +233,13 @@ export const QuotePage: React.FC = () => {
                       <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
                         Destination (Country &amp; City) *
                       </label>
-                      <div className="grid grid-cols-2 gap-2">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         <input
                           type="text"
                           required
                           value={formData.destinationCountry}
                           onChange={(e) => setFormData({ ...formData, destinationCountry: e.target.value })}
-                          placeholder="Country (e.g. UK)"
+                          placeholder="Country (e.g. UAE / UK)"
                           className="w-full px-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
                         />
                         <input
@@ -249,7 +247,7 @@ export const QuotePage: React.FC = () => {
                           required
                           value={formData.destinationCity}
                           onChange={(e) => setFormData({ ...formData, destinationCity: e.target.value })}
-                          placeholder="City (e.g. London)"
+                          placeholder="City (e.g. Dubai / London)"
                           className="w-full px-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
                         />
                       </div>
@@ -262,7 +260,7 @@ export const QuotePage: React.FC = () => {
                   <h3 className="text-sm font-bold uppercase tracking-wider text-[#024BB2] mb-3">
                     3. Cargo &amp; Weight Specifications
                   </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
                         Shipment Service Type
@@ -274,8 +272,7 @@ export const QuotePage: React.FC = () => {
                       >
                         <option value="parcel">Commercial Parcel</option>
                         <option value="document">Priority Document</option>
-                        <option value="air-cargo">Air Cargo Freight (&gt;50kg)</option>
-                        <option value="freight">Heavy Project Cargo</option>
+                        <option value="household-parcel">Household Parcel</option>
                         <option value="e-commerce">E-Commerce Goods</option>
                       </select>
                     </div>
@@ -291,19 +288,6 @@ export const QuotePage: React.FC = () => {
                         value={formData.weight}
                         onChange={(e) => setFormData({ ...formData, weight: e.target.value })}
                         placeholder="e.g. 5.5"
-                        className="w-full px-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs font-medium focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
-                        Dimensions (LxWxH cm)
-                      </label>
-                      <input
-                        type="text"
-                        value={formData.dimensions}
-                        onChange={(e) => setFormData({ ...formData, dimensions: e.target.value })}
-                        placeholder="e.g. 40x30x20 cm"
                         className="w-full px-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs font-medium focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
                       />
                     </div>

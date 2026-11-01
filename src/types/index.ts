@@ -78,10 +78,11 @@ export interface QuoteFormData {
   email: string;
   phone: string;
   pickupCountry: string;
+  pickupState?: string;
   pickupCity: string;
   destinationCountry: string;
   destinationCity: string;
-  shipmentType: 'document' | 'parcel' | 'air-cargo' | 'freight' | 'e-commerce';
+  shipmentType: 'document' | 'parcel' | 'household-parcel' | 'air-cargo' | 'freight' | 'e-commerce';
   weight: string;
   dimensions?: string;
   preferredDate?: string;
