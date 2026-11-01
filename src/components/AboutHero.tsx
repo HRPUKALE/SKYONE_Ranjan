@@ -19,8 +19,8 @@ export const AboutHero: React.FC<AboutHeroProps> = ({ onNavigate }) => {
   const stats = [
     {
       icon: Users,
-      value: '80%',
-      label: 'Kerala diaspora in GCC countries',
+      value: '200+',
+      label: 'Countries served for Kerala diaspora',
     },
     {
       icon: IndianRupee,
@@ -30,12 +30,12 @@ export const AboutHero: React.FC<AboutHeroProps> = ({ onNavigate }) => {
     {
       icon: PlaneTakeoff,
       value: '60%',
-      label: 'Kerala air cargo via Cochin Airport',
+      label: 'Kerala air cargo connectivity',
     },
     {
       icon: Globe,
-      value: '220+',
-      label: 'Countries connected from Kerala',
+      value: '100%',
+      label: 'Doorstep pickup across Kerala',
     },
   ];
 

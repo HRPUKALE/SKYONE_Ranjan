@@ -171,7 +171,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenQuote })
                 Headquartered in Kerala and operating from{' '}
                 <strong className="text-slate-800">Cochin International Airport (CIAL)</strong> — India's first fully
                 solar-powered international airport and Kerala's primary air cargo gateway — we leverage strategic
-                airline partnerships, dedicated customs expertise for GCC destinations, and a full doorstep pickup
+                airline partnerships, dedicated customs expertise for 200+ countries, and a full doorstep pickup
                 network across Kerala.
               </p>
 
