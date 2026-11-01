@@ -69,22 +69,22 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
       telephone: '+91 79075 90062'
     },
     description: service.shortDescription,
-    areaServed: ['Kerala', 'India', 'UAE', 'United Kingdom', 'United States', 'Saudi Arabia', 'Qatar', 'Oman']
+    areaServed: ['USA', 'United Kingdom', 'Canada', 'Europe', 'Germany', 'Ireland', 'New Zealand', 'Australia', 'UAE', 'Saudi Arabia', 'Qatar', 'Oman', 'Kerala', 'India']
   };
 
   // Per-slug SEO metadata for keyword-rich, geo-targeted titles
   const seoMeta: Record<string, { title: string; description: string }> = {
     'international-courier': {
       title: 'International Courier Service from Kerala | SkyOne — 2–4 Day Delivery',
-      description: 'Fast, secure international courier from Kerala with doorstep pickup. Documents, parcels and commercial goods delivered to UAE, UK, USA and 200+ countries in 2–4 business days.',
+      description: 'Fast, secure international courier from Kerala with doorstep pickup. Documents, parcels and commercial goods delivered to USA, UK, Canada, Europe, Germany, Ireland, New Zealand, UAE and 200+ countries in 2–4 business days.',
     },
     'express-delivery': {
       title: 'Express International Courier from Kerala | 24–48 Hour Delivery | SkyOne',
       description: 'Next-flight-out express courier from Kerala. Urgent documents, contracts and time-critical parcels delivered internationally in 24–48 hours with real-time AWB tracking.',
     },
     'air-freight': {
-      title: 'Air Freight from Kochi Airport | Commercial Cargo to UAE, UK & Global | SkyOne',
-      description: 'Commercial air freight solutions from Cochin International Airport (COK). Heavy cargo, palletized freight and bulk shipments to Gulf, Europe and worldwide in 3–5 business days.',
+      title: 'Air Freight from Kerala | Commercial Cargo to USA, UK, Canada, Europe & Global | SkyOne',
+      description: 'Commercial air freight solutions from Kerala. Heavy cargo, palletized freight and bulk shipments to USA, UK, Canada, Europe, Germany, Ireland, UAE and worldwide in 3–5 business days.',
     },
     'cargo': {
       title: 'Cargo Services from Kerala | Heavy Freight & Commercial Shipments | SkyOne',

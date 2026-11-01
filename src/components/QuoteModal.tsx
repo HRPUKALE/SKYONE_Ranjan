@@ -17,8 +17,8 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
     pickupCountry: 'India',
     pickupState: 'Kerala',
     pickupCity: 'Kochi',
-    destinationCountry: 'United Arab Emirates',
-    destinationCity: 'Dubai',
+    destinationCountry: 'United States',
+    destinationCity: 'New York',
     shipmentType: 'parcel',
     weight: '3.5',
     dimensions: '',
@@ -251,7 +251,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                           required
                           value={formData.destinationCountry}
                           onChange={(e) => setFormData({ ...formData, destinationCountry: e.target.value })}
-                          placeholder="Country (e.g. UAE / UK)"
+                          placeholder="Country (e.g. USA / UK / Canada / Europe)"
                           className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
                         />
                         <input

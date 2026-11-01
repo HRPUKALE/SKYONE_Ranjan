@@ -26,8 +26,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenQuote }) =
   return (
     <div className="space-y-0">
       <SEO
-        title="International Courier Service from Kerala | SkyOne — Dubai, UK, USA"
-        description="Kerala's trusted international courier. Door-to-door delivery to UAE, Saudi Arabia, UK, USA and 200+ countries. Doorstep pickup across Kochi, Trivandrum, Kozhikode and all Kerala districts."
+        title="International Courier Service from Kerala | SkyOne — USA, UK, Canada & Beyond"
+        description="Kerala's trusted international courier. Door-to-door delivery to USA, UK, Canada, Europe, Germany, Ireland, New Zealand, UAE, Saudi Arabia and 200+ countries. Doorstep pickup across all Kerala districts."
         canonicalPath="/"
       />
 
@@ -45,7 +45,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenQuote }) =
               International Courier Service from Kerala — Trusted by NRIs Worldwide
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed mb-3">
-              SkyOne is Kerala's dedicated international courier service, operating from Cochin International Airport (COK) with doorstep pickup across all 14 Kerala districts — Kochi, Thiruvananthapuram, Kozhikode, Thrissur, Malappuram, Kannur, Kollam, Palakkad and more. We connect Kerala families and businesses to the UAE, Saudi Arabia, Qatar, Oman, Kuwait, United Kingdom, United States, Canada and 200+ countries worldwide.
+              SkyOne is Kerala's dedicated international courier service, operating from Kerala with doorstep pickup across all 14 districts — Pathanamthitta, Kochi, Thiruvananthapuram, Kozhikode, Thrissur, Malappuram, Kannur, Kollam, Palakkad, and beyond. We connect Kerala families and businesses to the USA, UK, Canada, Europe, Germany, Ireland, New Zealand, UAE, Saudi Arabia, Qatar, Oman, Kuwait, and 200+ countries worldwide.
             </p>
             <p className="text-sm text-slate-600 leading-relaxed">
               Whether you are an NRI sending important documents from Kerala to Dubai, a family shipping personal parcels to the Gulf, or a business exporting commercial cargo from Kochi to Europe — SkyOne provides fast, secure and fully tracked air courier with real-time AWB updates from pickup to delivery.

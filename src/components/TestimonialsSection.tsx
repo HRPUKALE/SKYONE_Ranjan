@@ -21,7 +21,7 @@ export const TestimonialsSection: React.FC = () => {
       role: 'Founder & Designer',
       company: 'Nayan Sarees & Handlooms, Ernakulam',
       rating: 5,
-      review: 'Dispatching delicate bridal sarees and custom kasavu attires to our clients across UAE, UK, and USA used to give us anxiety. SkyOne’s secure door-to-door transit and proactive live tracking are simply unmatched.'
+      review: 'Dispatching delicate bridal sarees and custom kasavu attires to our clients across USA, UK, Canada, Europe, Germany, and UAE used to give us anxiety. SkyOne’s secure door-to-door transit and proactive live tracking are simply unmatched.'
     },
     {
       name: 'Anandhu Nair',

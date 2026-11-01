@@ -38,7 +38,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
             </button>
 
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
-              SkyOne is Kerala's trusted international courier service. Headquartered at Thiruvalla, Pathanamthitta, we provide doorstep pickup across all Kerala districts with express delivery to UAE, Saudi Arabia, UK, USA and 200+ countries worldwide.
+              SkyOne is Kerala's trusted international courier service. Headquartered at Thiruvalla, Pathanamthitta, we provide doorstep pickup across all Kerala districts with express delivery to USA, UK, Canada, Europe, Germany, Ireland, New Zealand, UAE, Saudi Arabia and 200+ countries worldwide.
             </p>
 
             {/* Quick Contact Micro-items */}

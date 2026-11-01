@@ -18,7 +18,7 @@ export const TrackPage: React.FC<TrackPageProps> = ({ initialAwb, onNavigate, on
     <div className="py-10 bg-slate-50 min-h-screen">
       <SEO
         title={effectiveAwb ? `Track ${effectiveAwb} — SkyOne Shipment Status` : 'Track Your Shipment | SkyOne International Courier Kerala'}
-        description="Track your SkyOne international courier in real-time. Enter your AWB number to see live flight status, customs clearance updates and estimated delivery to UAE, UK, USA and beyond."
+        description="Track your SkyOne international courier in real-time. Enter your AWB number to see live flight status, customs clearance updates and estimated delivery to USA, UK, Canada, Europe, Germany, Ireland, New Zealand, UAE and beyond."
         canonicalPath={effectiveAwb ? `/track?awb=${encodeURIComponent(effectiveAwb)}` : '/track'}
       />
 

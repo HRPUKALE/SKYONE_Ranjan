@@ -64,8 +64,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenQuote })
 
   const whyKeralaAdvantage = [
     {
-      title: 'Deepest Gulf Connections',
-      desc: 'Kerala has the strongest NRI presence in the UAE, Saudi Arabia, Qatar, Oman, and Kuwait. We were built specifically for these corridors with dedicated flight slots and GCC customs expertise.',
+      title: 'Global NRI & Western Corridors',
+      desc: 'Connecting Kerala families to the USA, UK, Canada, Europe, Germany, Ireland, New Zealand, as well as the UAE, Saudi Arabia, Qatar, and Gulf destinations with dedicated flight allocations and export customs expertise.',
       icon: Star,
       color: 'text-amber-500',
       bg: 'bg-amber-50',
@@ -114,21 +114,25 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenQuote })
   ];
 
   const destinations = [
+    { flag: '🇺🇸', country: 'USA', city: 'New York / LA / Chicago' },
+    { flag: '🇬🇧', country: 'United Kingdom (UK)', city: 'London / Manchester / Heathrow' },
+    { flag: '🇨🇦', country: 'Canada', city: 'Toronto / Vancouver' },
+    { flag: '🇪🇺', country: 'Europe', city: 'European Gateway Hubs' },
+    { flag: '🇩🇪', country: 'Germany', city: 'Frankfurt / Munich' },
+    { flag: '🇮🇪', country: 'Ireland', city: 'Dublin / Cork' },
+    { flag: '🇳🇿', country: 'New Zealand', city: 'Auckland / Wellington' },
+    { flag: '🇦🇺', country: 'Australia', city: 'Sydney / Melbourne' },
     { flag: '🇦🇪', country: 'UAE', city: 'Dubai / Abu Dhabi' },
     { flag: '🇸🇦', country: 'Saudi Arabia', city: 'Riyadh / Jeddah' },
     { flag: '🇶🇦', country: 'Qatar', city: 'Doha' },
     { flag: '🇴🇲', country: 'Oman', city: 'Muscat' },
-    { flag: '🇬🇧', country: 'United Kingdom', city: 'London' },
-    { flag: '🇺🇸', country: 'USA', city: 'New York / LA' },
-    { flag: '🇨🇦', country: 'Canada', city: 'Toronto' },
-    { flag: '🇦🇺', country: 'Australia', city: 'Sydney / Melbourne' },
   ];
 
   return (
     <div className="space-y-0 bg-white">
       <SEO
         title="About SkyOne | Kerala's Best International Courier Service"
-        description="SkyOne International Courier — born in Kerala, built for Kerala. Serving NRIs across the Gulf, UK, USA and beyond with fast, trusted courier from Kochi, Trivandrum, Kozhikode and all of Kerala."
+        description="SkyOne International Courier — born in Kerala, built for Kerala. Serving NRIs across USA, UK, Canada, Europe, Germany, Ireland, New Zealand, UAE, Gulf and beyond with fast, trusted courier from all of Kerala."
         canonicalPath="/about"
       />
 
@@ -173,11 +177,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenQuote })
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                 {[
-                  'Direct Gulf corridors: UAE, KSA, Qatar, Oman, Kuwait',
+                  'Priority corridors: USA, UK, Canada, Europe, Germany, Ireland, New Zealand',
+                  'Direct Gulf corridors: UAE, Saudi Arabia, Qatar, Oman, Kuwait',
                   'Specialist NRI document handling',
                   'Doorstep pickup across all Kerala districts',
                   'Express delivery to 220+ countries worldwide',
-                  'GCC customs pre-clearance expertise',
+                  'Customs pre-clearance expertise',
                   '24/7 Malayalam & English customer support',
                 ].map((point, i) => (
                   <div key={i} className="flex items-start gap-2.5">

@@ -7,7 +7,7 @@ interface RateCalculatorSectionProps {
 
 export const RateCalculatorSection: React.FC<RateCalculatorSectionProps> = ({ onOpenQuote }) => {
   const [origin, setOrigin] = useState('India');
-  const [destination, setDestination] = useState('United Kingdom');
+  const [destination, setDestination] = useState('United States (USA)');
   const [shipmentType, setShipmentType] = useState('parcel');
   const [weight, setWeight] = useState('2.5');
   const [hasCalculated, setHasCalculated] = useState(false);
@@ -102,12 +102,17 @@ export const RateCalculatorSection: React.FC<RateCalculatorSectionProps> = ({ on
                       }}
                       className="w-full px-3.5 py-2.5 min-h-[44px] bg-white border border-slate-300 rounded-xl text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600 cursor-pointer"
                     >
-                      <option value="United Kingdom">United Kingdom (UK)</option>
-                      <option value="United States">United States (USA)</option>
-                      <option value="UAE">United Arab Emirates (Dubai)</option>
-                      <option value="Germany">Germany (Europe)</option>
-                      <option value="Australia">Australia</option>
+                      <option value="United States (USA)">United States (USA)</option>
+                      <option value="United Kingdom (UK)">United Kingdom (UK)</option>
                       <option value="Canada">Canada</option>
+                      <option value="Europe">Europe (EU Hubs)</option>
+                      <option value="Germany">Germany</option>
+                      <option value="Ireland">Ireland</option>
+                      <option value="New Zealand">New Zealand</option>
+                      <option value="Australia">Australia</option>
+                      <option value="UAE">United Arab Emirates (Dubai / Abu Dhabi)</option>
+                      <option value="Saudi Arabia">Saudi Arabia</option>
+                      <option value="Qatar">Qatar</option>
                       <option value="Singapore">Singapore</option>
                     </select>
                   </div>

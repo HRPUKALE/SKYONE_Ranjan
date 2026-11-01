@@ -277,7 +277,7 @@ export const AboutHero: React.FC<AboutHeroProps> = ({ onNavigate }) => {
                       </text>
                     </g>
 
-                    {/* Waypoint 2: DUBAI */}
+                    {/* Waypoint 2: LONDON (UK) */}
                     <g transform="translate(145, 36)">
                       <circle cx="0" cy="0" r="3" fill="#024BB2" />
                       <circle cx="0" cy="0" r="1" fill="white" />
@@ -291,11 +291,11 @@ export const AboutHero: React.FC<AboutHeroProps> = ({ onNavigate }) => {
                         letterSpacing="0.08em"
                         filter="drop-shadow(0px 1px 2px rgba(0,0,0,0.85))"
                       >
-                        DUBAI
+                        UK (LONDON)
                       </text>
                     </g>
 
-                    {/* Waypoint 3: LONDON */}
+                    {/* Waypoint 3: USA (NEW YORK) */}
                     <g transform="translate(250, 18)">
                       <circle cx="0" cy="0" r="3" fill="#024BB2" />
                       <circle cx="0" cy="0" r="1" fill="white" />
@@ -309,7 +309,7 @@ export const AboutHero: React.FC<AboutHeroProps> = ({ onNavigate }) => {
                         letterSpacing="0.08em"
                         filter="drop-shadow(0px 1px 2px rgba(0,0,0,0.85))"
                       >
-                        LONDON
+                        USA (NEW YORK)
                       </text>
                     </g>
                   </svg>

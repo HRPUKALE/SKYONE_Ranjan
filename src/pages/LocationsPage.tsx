@@ -11,7 +11,7 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onOpenQuote }) => 
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedRegion, setSelectedRegion] = useState('ALL');
 
-  const regions = ['ALL', 'South Asia', 'Middle East', 'Europe', 'North America', 'Asia Pacific', 'Oceania'];
+  const regions = ['ALL', 'North America', 'Europe', 'Oceania', 'Middle East', 'South Asia', 'Asia Pacific'];
 
   const filteredLocations = GLOBAL_HUBS.filter((loc) => {
     const matchesSearch = 
@@ -27,8 +27,8 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onOpenQuote }) => 
   return (
     <div className="py-14 bg-slate-50 min-h-screen">
       <SEO
-        title="SkyOne Courier Locations — Kochi, Dubai, London & Global Hubs"
-        description="Find SkyOne international courier offices and cargo terminals. Primary hub at Cochin International Airport (COK) with gateway hubs in Dubai, London, New York and Singapore."
+        title="SkyOne Courier Locations — USA, UK, Canada, Europe, Germany & Global Hubs"
+        description="Find SkyOne international courier offices and cargo terminals. Gateway hubs in New York (USA), London (UK), Toronto (Canada), Frankfurt (Germany), Dublin (Ireland), Auckland (New Zealand), and global networks."
         canonicalPath="/locations"
       />
 

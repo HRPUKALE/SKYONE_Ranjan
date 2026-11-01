@@ -28,7 +28,7 @@ export const FAQS_LIST: FaqItem[] = [
     id: 'international-shipping',
     category: 'Services & Timing',
     question: 'Do you offer international shipping across all major trade lanes?',
-    answer: 'Yes. SkyOne provides international courier and cargo coverage connecting India to key global hubs across the United Kingdom, Europe, the United States, Canada, the Middle East (UAE, Saudi Arabia, Qatar), Australia, and Asia-Pacific.'
+    answer: 'Yes. SkyOne provides international courier and cargo coverage connecting India to key global hubs across the United States (USA), United Kingdom (UK), Canada, Europe, Germany, Ireland, New Zealand, Australia, and the Middle East (UAE, Saudi Arabia, Qatar).'
   },
   {
     id: 'door-to-door',
