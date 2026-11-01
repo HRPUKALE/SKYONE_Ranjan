@@ -49,7 +49,7 @@ export const ContactPage: React.FC = () => {
         setErrorMessage(data?.message || 'Unable to submit message. Please try again.');
       }
     } catch (err) {
-      setErrorMessage('Network connection error. We were unable to reach our support desk. Please check your internet connection or call our Operations Desk directly at +91 22 8800 1200.');
+      setErrorMessage(`Network connection error. We were unable to reach our support desk. Please check your internet connection or call our Operations Desk directly at ${SKYONE_CONFIG.primaryPhone}.`);
     } finally {
       setIsLoading(false);
     }
@@ -108,12 +108,12 @@ export const ContactPage: React.FC = () => {
                     <Phone className="w-4 h-4 text-[#024BB2]" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900">Telephone Lines</h3>
+                    <h3 className="font-bold text-slate-900">Telephone &amp; WhatsApp</h3>
                     <p className="mt-0.5 text-slate-600">
-                      Direct: <span className="font-semibold text-slate-800">{SKYONE_CONFIG.primaryPhone}</span>
+                      Direct: <a href={`tel:${SKYONE_CONFIG.primaryPhone.replace(/\s+/g, '')}`} className="font-semibold text-slate-800 hover:text-blue-600">{SKYONE_CONFIG.primaryPhone}</a>
                     </p>
                     <p className="text-slate-500 text-xs">
-                      Toll-Free Support: {SKYONE_CONFIG.tollFreeSupport}
+                      WhatsApp: <a href="https://wa.me/917907590062" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:underline font-semibold">+91 79075 90062</a>
                     </p>
                   </div>
                 </div>
@@ -125,10 +125,7 @@ export const ContactPage: React.FC = () => {
                   <div>
                     <h3 className="font-bold text-slate-900">Email Inquiries</h3>
                     <p className="mt-0.5 text-slate-600">
-                      General: <span className="font-semibold text-[#024BB2]">{SKYONE_CONFIG.supportEmail}</span>
-                    </p>
-                    <p className="text-slate-500 text-xs">
-                      Quotes: {SKYONE_CONFIG.quoteEmail}
+                      Support: <a href={`mailto:${SKYONE_CONFIG.supportEmail}`} className="font-semibold text-[#024BB2] hover:underline">{SKYONE_CONFIG.supportEmail}</a>
                     </p>
                   </div>
                 </div>
@@ -149,14 +146,22 @@ export const ContactPage: React.FC = () => {
 
             <div className="bg-slate-900 text-white rounded-3xl p-6 border border-slate-800">
               <div className="text-xs font-mono font-bold text-blue-400 uppercase tracking-wider mb-1">
-                Emergency Dispatch
+                Direct Booking Desk
               </div>
               <h4 className="text-base font-bold">
-                Time-Critical AOG &amp; Medical Consignments
+                Call / WhatsApp For Doorstep Pickup
               </h4>
               <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-                For immediate next-flight-out bookings requiring airside tarmac collection, our 24/7 priority line is available continuously.
+                Need urgent shipment collection from your home or business in Kerala? Contact our dispatch desk directly:
               </p>
+              <div className="mt-3">
+                <a
+                  href={`tel:${SKYONE_CONFIG.primaryPhone.replace(/\s+/g, '')}`}
+                  className="text-lg font-extrabold text-[#E5192D] hover:underline font-mono"
+                >
+                  {SKYONE_CONFIG.primaryPhone}
+                </a>
+              </div>
             </div>
           </div>
 
@@ -246,7 +251,7 @@ export const ContactPage: React.FC = () => {
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+91 98200 00000"
+                      placeholder="+91 79075 90062"
                       className="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
                     />
                   </div>

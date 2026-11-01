@@ -5,12 +5,12 @@ export const GLOBAL_HUBS: LocationItem[] = [
     id: 'in-cok',
     country: 'India',
     region: 'South Asia',
-    city: 'Kochi (Cochin)',
-    office: 'SkyOne Kerala Headquarters & Primary Hub',
-    address: 'Air Cargo Terminal, Cochin International Airport (COK), Nedumbassery, Kochi, Kerala 683111',
-    phone: '+91-484-000-0000',
-    email: 'kochi.hub@skyonecourier.com',
-    hours: '24/7 Operations Hub',
+    city: 'Thiruvalla (Pathanamthitta)',
+    office: 'SkyOne Kerala Headquarters & Main Booking Office',
+    address: 'SNDP Union Bldg, Ground Floor, Shop No 744, Near My G Showroom, M C Road, Thiruvalla, Pathanamthitta (Dt), Kerala 689101',
+    phone: '+91 79075 90062',
+    email: 'skyonesupport@gmail.com',
+    hours: 'Mon - Sat: 08:30 - 20:30',
     isHub: true
   },
   {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, Send, CheckCircle2, AlertCircle, Loader2, ArrowRight } from 'lucide-react';
 import { QuoteFormData } from '../types';
+import { SKYONE_CONFIG } from '../config';
 
 interface QuoteModalProps {
   isOpen: boolean;
@@ -81,7 +82,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
         setErrorMessage(data?.message || 'Unable to submit quote. Please verify details and try again.');
       }
     } catch (err) {
-      setErrorMessage('Network error. Unable to reach dispatch servers. Please check your internet connection or call our desk at +91 22 8800 1200.');
+      setErrorMessage(`Network error. Unable to reach dispatch servers. Please check your internet connection or call our desk at ${SKYONE_CONFIG.primaryPhone}.`);
     } finally {
       setIsLoading(false);
     }
@@ -196,7 +197,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                       required
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+91 98200 12345"
+                      placeholder="+91 79075 90062"
                       className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
                     />
                   </div>

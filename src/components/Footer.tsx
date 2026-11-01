@@ -38,18 +38,18 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
             </button>
 
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
-              SkyOne is Kerala's trusted international courier service. Based at Cochin International Airport, we provide doorstep pickup across all Kerala districts with express delivery to UAE, Saudi Arabia, UK, USA and 200+ countries worldwide.
+              SkyOne is Kerala's trusted international courier service. Headquartered at Thiruvalla, Pathanamthitta, we provide doorstep pickup across all Kerala districts with express delivery to UAE, Saudi Arabia, UK, USA and 200+ countries worldwide.
             </p>
 
             {/* Quick Contact Micro-items */}
             <div className="space-y-2 text-xs text-slate-400 pt-2">
               <div className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-[#E5192D] shrink-0" />
-                <span>{SKYONE_CONFIG.primaryPhone}</span>
+                <a href={`tel:${SKYONE_CONFIG.primaryPhone.replace(/\s+/g, '')}`} className="hover:text-white transition-colors">{SKYONE_CONFIG.primaryPhone}</a>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-[#024BB2] shrink-0" />
-                <span>{SKYONE_CONFIG.supportEmail}</span>
+                <a href={`mailto:${SKYONE_CONFIG.supportEmail}`} className="hover:text-white transition-colors">{SKYONE_CONFIG.supportEmail}</a>
               </div>
               <div className="flex items-start gap-2">
                 <MapPin className="w-3.5 h-3.5 text-slate-500 shrink-0 mt-0.5" />

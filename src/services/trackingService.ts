@@ -1,5 +1,6 @@
 import { Shipment, TrackingQueryResult } from '../types';
 import { SAMPLE_SHIPMENTS } from '../data/mockShipments';
+import { SKYONE_CONFIG } from '../config';
 
 export const DEMO_MODE = true;
 
@@ -119,6 +120,6 @@ export async function trackShipment(trackingInput: string): Promise<TrackingQuer
   return {
     success: false,
     errorType: 'NOT_FOUND',
-    errorMessage: `Consignment AWB "${cleanedAwb}" was not found in our global tracking registry. Please verify the tracking number printed on your receipt or contact the 24/7 Operations Desk at +91 22 8800 1200.`
+    errorMessage: `Consignment AWB "${cleanedAwb}" was not found in our global tracking registry. Please verify the tracking number printed on your receipt or contact the 24/7 Operations Desk at ${SKYONE_CONFIG.primaryPhone}.`
   };
 }

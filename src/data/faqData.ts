@@ -102,6 +102,6 @@ export const FAQS_LIST: FaqItem[] = [
     id: 'malayalam-support',
     category: 'Pricing & Booking',
     question: 'Is Malayalam-language customer support available?',
-    answer: 'Yes. Our Kerala-based customer support team is fully Malayalam-speaking. You can reach us by phone, WhatsApp or in-person at our Kochi office in your preferred language. Our dispatch advisors are available Monday to Saturday, 8 AM to 10 PM IST.'
+    answer: 'Yes. Our Kerala-based customer support team is fully Malayalam-speaking. You can reach us by phone, WhatsApp (+91 79075 90062) or in-person at our Thiruvalla (Pathanamthitta) booking office in your preferred language. Our dispatch advisors are available Monday to Saturday, 8:30 AM to 8:30 PM IST.'
   }
 ];

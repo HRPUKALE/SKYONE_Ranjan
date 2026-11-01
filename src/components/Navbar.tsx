@@ -3,6 +3,7 @@ import { Menu, X, ArrowRight, Search, ChevronDown, PhoneCall } from 'lucide-reac
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { SkyOneLogo } from './SkyOneLogo';
 import { EASING, DURATION } from '../utils/motion';
+import { SKYONE_CONFIG } from '../config';
 
 interface NavbarProps {
   currentPath: string;
@@ -263,7 +264,9 @@ export const Navbar: React.FC<NavbarProps> = ({
 
                 <div className="text-center text-xs text-slate-500 pt-2 flex items-center justify-center gap-1">
                   <PhoneCall className="w-3.5 h-3.5 text-blue-600" />
-                  <span>Dispatch Desk: +91 22 8800 1200</span>
+                  <a href={`tel:${SKYONE_CONFIG.primaryPhone.replace(/\s+/g, '')}`} className="hover:text-blue-700">
+                    Dispatch Desk: {SKYONE_CONFIG.primaryPhone}
+                  </a>
                 </div>
               </div>
             </motion.div>

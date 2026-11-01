@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { QuoteFormData } from '../types';
 import { CheckCircle2, AlertCircle, Loader2, ArrowRight, ShieldCheck, Clock, Plane } from 'lucide-react';
 import { SEO } from '../components/SEO';
+import { SKYONE_CONFIG } from '../config';
 
 export const QuotePage: React.FC = () => {
   const [formData, setFormData] = useState<QuoteFormData>({
@@ -61,7 +62,7 @@ export const QuotePage: React.FC = () => {
         setErrorMessage(data?.message || 'Unable to submit quote request. Please verify details.');
       }
     } catch (err) {
-      setErrorMessage('Network connection error. We were unable to reach our dispatch server. Please check your internet connection or call our Operations Desk directly at +91 22 8800 1200.');
+      setErrorMessage(`Network connection error. We were unable to reach our dispatch server. Please check your internet connection or call our Operations Desk directly at ${SKYONE_CONFIG.primaryPhone}.`);
     } finally {
       setIsLoading(false);
     }
@@ -183,7 +184,7 @@ export const QuotePage: React.FC = () => {
                           required
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          placeholder="+91 98200 88888"
+                          placeholder="+91 79075 90062"
                           className="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
                         />
                       </div>
@@ -378,7 +379,9 @@ export const QuotePage: React.FC = () => {
                 For time-critical next-flight-out bookings or AOG emergency shipments, call our operations desk directly:
               </p>
               <div className="text-base font-extrabold text-[#E5192D] font-mono">
-                +91 (022) 8800-1200
+                <a href={`tel:${SKYONE_CONFIG.primaryPhone.replace(/\s+/g, '')}`} className="hover:underline">
+                  {SKYONE_CONFIG.primaryPhone}
+                </a>
               </div>
             </div>
           </div>

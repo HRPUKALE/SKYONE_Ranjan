@@ -60,10 +60,13 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
       url: 'https://skyonecourier.com',
       address: {
         '@type': 'PostalAddress',
-        addressLocality: 'Kochi',
+        streetAddress: 'SNDP Union Bldg, Ground Floor, Shop No 744, Near My G Showroom, M C Road',
+        addressLocality: 'Thiruvalla',
         addressRegion: 'Kerala',
+        postalCode: '689101',
         addressCountry: 'IN',
-      }
+      },
+      telephone: '+91 79075 90062'
     },
     description: service.shortDescription,
     areaServed: ['Kerala', 'India', 'UAE', 'United Kingdom', 'United States', 'Saudi Arabia', 'Qatar', 'Oman']
