@@ -320,7 +320,7 @@ export default async function handler(req: any, res: any) {
   // 1. Live Speedex / SPD Express Carrier Tracking API Integration
   const spdApiUrl = process.env.CARRIER_API_URL || 'http://admin.spdexp.com/api/tracking_api/get_tracking_data';
   const spdCompanyId = process.env.CARRIER_COMPANY_ID || '24';
-  const spdCustomerCode = process.env.CARRIER_CUSTOMER_CODE || 'SWIFT';
+  const spdCustomerCode = process.env.CARRIER_CUSTOMER_CODE || 'SKYONE';
 
   if (spdCustomerCode) {
     try {
