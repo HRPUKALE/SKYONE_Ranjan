@@ -7,7 +7,6 @@ import { ShipmentJourney } from '../components/ShipmentJourney';
 import { WhySkyOne } from '../components/WhySkyOne';
 import { ValuesSection } from '../components/ValuesSection';
 import { TestimonialsSection } from '../components/TestimonialsSection';
-import { RateCalculatorSection } from '../components/RateCalculatorSection';
 import { FaqSection } from '../components/FaqSection';
 import { SEO } from '../components/SEO';
 
@@ -76,9 +75,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenQuote }) =
 
       {/* 13. Testimonials Carousel */}
       <TestimonialsSection />
-
-      {/* 14. Quote CTA & Rate Calculator */}
-      <RateCalculatorSection onOpenQuote={onOpenQuote} />
 
       {/* 15. FAQ Section */}
       <FaqSection onContactClick={() => onNavigate('/contact')} />
