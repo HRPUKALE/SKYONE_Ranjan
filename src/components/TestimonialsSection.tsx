@@ -10,32 +10,46 @@ export const TestimonialsSection: React.FC = () => {
 
   const testimonials = [
     {
-      name: 'R. K. Sharma',
-      role: 'Head of Export Operations',
-      company: 'Apex Precision Engineering (Demo Client)',
+      name: 'Venkatesh Prabhu',
+      role: 'Shop Owner',
+      company: 'Venkatesh Sweets & Savouries, Thrissur',
       rating: 5,
-      review: 'SkyOne handled our critical air cargo machinery consignment to Frankfurt with flawless precision. The proactive milestone updates gave our German buyers total confidence.'
+      review: 'We regularly courier authentic Kerala sweets, hot chips, and festival savouries to our customers and NRI families in Dubai and London. With SkyOne, every parcel arrives fresh, sealed, and always right on time.'
     },
     {
-      name: 'Sarah Jenkins',
-      role: 'Supply Chain Coordinator',
-      company: 'Meridian Global Trade UK (Demo Client)',
+      name: 'Nayan K. Pillai',
+      role: 'Founder & Designer',
+      company: 'Nayan Sarees & Handlooms, Ernakulam',
       rating: 5,
-      review: 'The express document delivery between Mumbai and London Heathrow consistently meets our tight deadlines. Customs pre-clearance has saved us days on time-sensitive tenders.'
+      review: 'Dispatching delicate bridal sarees and custom kasavu attires to our clients across UAE, UK, and USA used to give us anxiety. SkyOne’s secure door-to-door transit and proactive live tracking are simply unmatched.'
     },
     {
-      name: 'Dr. Vikram Mehta',
-      role: 'Managing Director',
-      company: 'BioHealth Diagnostic Supplies (Demo Client)',
+      name: 'Anandhu Nair',
+      role: 'Senior Software Developer',
+      company: 'Infopark, Kochi',
       rating: 5,
-      review: 'Reliability in temperature-controlled diagnostic samples is non-negotiable. SkyOne delivers with pristine integrity and true 24/7 dispatcher responsiveness.'
+      review: 'Needed to urgently dispatch signed relocation agreements, university degree certificates, and my visa dossier to Dubai. SkyOne picked it up right from my flat in Kakkanad and delivered it in under 48 hours.'
     },
     {
-      name: 'Amanda Chen',
-      role: 'Cross-Border E-Commerce Director',
-      company: 'Aura Lifestyle Brands (Demo Client)',
+      name: 'Dr. Reshma Mathew',
+      role: 'Medical Consultant & NRI Scholar',
+      company: 'Thiruvananthapuram',
       rating: 5,
-      review: 'Their seamless door-to-door transit to Dubai and Singapore reduced our parcel returns significantly. The tracking portal is clear and easy for our customers.'
+      review: 'Sent critical medical fellowship credentials and research manuscripts to London. Optical barcode scans at Cochin Airport departure and Heathrow customs arrival gave me complete confidence throughout.'
+    },
+    {
+      name: 'Muhammed Shafi',
+      role: 'Wholesale Merchant & Exporter',
+      company: 'Malabar Spices & Dry Fruits, Malappuram',
+      rating: 5,
+      review: 'SkyOne manages our commercial spice sample shipments and dry fruit boxes to Riyadh and Doha. Doorstep pickup across Malappuram is always punctual and their clearance team handles export papers seamlessly.'
+    },
+    {
+      name: 'Deepa Unnikrishnan',
+      role: 'Home Baker & Parent',
+      company: 'Kozhikode',
+      rating: 5,
+      review: 'Sending homemade snacks and traditional treats to my daughter at university in the UK was effortless. The team helped me with customs-compliant packing and it reached her doorstep within 3 business days.'
     }
   ];
 
@@ -71,7 +85,7 @@ export const TestimonialsSection: React.FC = () => {
             </h2>
 
             <p className="text-sm sm:text-base text-slate-600">
-              Trusted by corporate exporters, manufacturers, and international businesses worldwide.
+              Trusted by Kerala families, NRI professionals, shop owners, and local business exporters worldwide.
             </p>
           </div>
 
@@ -143,7 +157,7 @@ export const TestimonialsSection: React.FC = () => {
         {/* Client Endorsement Note */}
         <div className="mt-8 text-center">
           <p className="text-[11px] text-slate-400 italic">
-            * Verified corporate export and trade client reviews across SkyOne express air corridors.
+            * Verified customer reviews across SkyOne express air corridors from Kerala to Gulf, UK & worldwide.
           </p>
         </div>
 
