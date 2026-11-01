@@ -396,7 +396,7 @@ export const TrackingSection: React.FC<TrackingSectionProps> = ({
                       </div>
                       {shipment.forwardingNo && (
                         <div className="text-[11px] text-slate-500 mt-1.5 flex items-center gap-1.5">
-                          <span>Network Ref:</span>
+                          <span>Forwarding No:</span>
                           <span className="font-mono font-bold text-[#024BB2] bg-blue-50 px-2 py-0.5 rounded border border-blue-200/90 shadow-2xs">
                             {shipment.forwardingNo}
                           </span>
