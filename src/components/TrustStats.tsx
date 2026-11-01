@@ -87,7 +87,7 @@ export const TrustStats: React.FC<TrustStatsProps> = ({ embedded = false, onNavi
       arrowBg: 'bg-blue-50',
       arrowHoverBg: 'bg-[#024BB2]',
       arrowColor: 'text-[#024BB2]',
-      targetPath: '/locations'
+      targetPath: '/about'
     },
     {
       value: '24/7',

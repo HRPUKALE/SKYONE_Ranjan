@@ -88,14 +88,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
                   <span className="group-hover:translate-x-1 transition-transform">Contact Desk</span>
                 </button>
               </li>
-              <li>
-                <button
-                  onClick={() => onNavigate('/locations')}
-                  className="hover:text-white transition-colors cursor-pointer flex items-center gap-1 group"
-                >
-                  <span className="group-hover:translate-x-1 transition-transform">Our Locations</span>
-                </button>
-              </li>
             </ul>
           </div>
 
