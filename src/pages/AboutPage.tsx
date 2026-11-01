@@ -18,7 +18,6 @@ import {
   Users,
   TrendingUp,
   CheckCircle2,
-  Zap,
 } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
@@ -115,14 +114,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenQuote })
   ];
 
   const destinations = [
-    { flag: '🇦🇪', country: 'UAE', city: 'Dubai / Abu Dhabi', time: '1-2 Days' },
-    { flag: '🇸🇦', country: 'Saudi Arabia', city: 'Riyadh / Jeddah', time: '2-3 Days' },
-    { flag: '🇶🇦', country: 'Qatar', city: 'Doha', time: '1-2 Days' },
-    { flag: '🇴🇲', country: 'Oman', city: 'Muscat', time: '2-3 Days' },
-    { flag: '🇬🇧', country: 'United Kingdom', city: 'London', time: '3-5 Days' },
-    { flag: '🇺🇸', country: 'USA', city: 'New York / LA', time: '3-5 Days' },
-    { flag: '🇨🇦', country: 'Canada', city: 'Toronto', time: '4-6 Days' },
-    { flag: '🇦🇺', country: 'Australia', city: 'Sydney / Melbourne', time: '4-6 Days' },
+    { flag: '🇦🇪', country: 'UAE', city: 'Dubai / Abu Dhabi' },
+    { flag: '🇸🇦', country: 'Saudi Arabia', city: 'Riyadh / Jeddah' },
+    { flag: '🇶🇦', country: 'Qatar', city: 'Doha' },
+    { flag: '🇴🇲', country: 'Oman', city: 'Muscat' },
+    { flag: '🇬🇧', country: 'United Kingdom', city: 'London' },
+    { flag: '🇺🇸', country: 'USA', city: 'New York / LA' },
+    { flag: '🇨🇦', country: 'Canada', city: 'Toronto' },
+    { flag: '🇦🇺', country: 'Australia', city: 'Sydney / Melbourne' },
   ];
 
   return (
@@ -351,10 +350,6 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenQuote })
                   <div className="text-3xl mb-3">{dest.flag}</div>
                   <div className="text-sm font-bold text-white">{dest.country}</div>
                   <div className="text-xs text-slate-400 mt-0.5">{dest.city}</div>
-                  <div className="mt-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[10px] font-bold">
-                    <Zap className="w-3 h-3" />
-                    {dest.time}
-                  </div>
                 </motion.div>
               </ScrollReveal>
             ))}
