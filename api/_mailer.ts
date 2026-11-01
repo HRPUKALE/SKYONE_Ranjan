@@ -1,9 +1,9 @@
 import nodemailer from 'nodemailer';
 
 // Email credentials
-const SMTP_USER = process.env.SMTP_USER || 'skyonesupport@gmail.com';
-const SMTP_PASS = process.env.SMTP_PASS ? process.env.SMTP_PASS.replace(/\s+/g, '') : 'fkgoinbrnwojgxay';
-const TARGET_EMAIL = process.env.DISPATCH_EMAIL_NOTIFICATION || 'skyonesupport@gmail.com';
+const SMTP_USER = 'skyonesupport@gmail.com';
+const SMTP_PASS = 'fkgoinbrnwojgxay';
+const TARGET_EMAIL = 'skyonesupport@gmail.com';
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
