@@ -111,17 +111,17 @@ export const Hero: React.FC<HeroProps> = ({ onTrackClick, onQuoteClick }) => {
               <span className="w-10 h-[2px] bg-[#024BB2]/70 inline-block ml-1" />
             </motion.div>
 
-            {/* Main Headline */}
+            {/* Main Headline — keyword-rich h1 for SEO */}
             <motion.h1
               initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: DURATION.standard + 0.1, delay: 0.1, ease: EASING.cinematic }}
               className="text-4xl sm:text-5xl lg:text-[62px] font-black text-slate-950 tracking-tight leading-[1.06] font-display"
             >
-              Your Shipment.
+              International Courier
               <br />
               <span className="text-[#024BB2] relative inline-block">
-                Our Commitment.
+                from Kerala
                 <svg className="absolute -bottom-2 left-0 w-full h-3 text-[#E5192D]" viewBox="0 0 300 12" fill="none" preserveAspectRatio="none">
                   <motion.path
                     d="M 0 6 Q 150 12 300 4"
@@ -133,6 +133,9 @@ export const Hero: React.FC<HeroProps> = ({ onTrackClick, onQuoteClick }) => {
                     transition={{ duration: 0.9, delay: 0.35, ease: EASING.snappy }}
                   />
                 </svg>
+              </span>
+              <span className="block text-slate-700 text-3xl sm:text-4xl lg:text-5xl mt-2">
+                To UAE, UK, USA &amp; Beyond
               </span>
             </motion.h1>
 

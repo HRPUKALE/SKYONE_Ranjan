@@ -27,8 +27,8 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onOpenQuote }) => 
   return (
     <div className="py-14 bg-slate-50 min-h-screen">
       <SEO
-        title="Global Network Hubs & Cargo Terminals"
-        description="Explore SkyOne international air logistics hubs, gateway terminals, and regional courier dispatch desks connecting India with major global business centers."
+        title="SkyOne Courier Locations — Kochi, Dubai, London & Global Hubs"
+        description="Find SkyOne international courier offices and cargo terminals. Primary hub at Cochin International Airport (COK) with gateway hubs in Dubai, London, New York and Singapore."
         canonicalPath="/locations"
       />
 

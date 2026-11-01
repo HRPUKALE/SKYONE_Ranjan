@@ -2,6 +2,18 @@ import { LocationItem } from '../types';
 
 export const GLOBAL_HUBS: LocationItem[] = [
   {
+    id: 'in-cok',
+    country: 'India',
+    region: 'South Asia',
+    city: 'Kochi (Cochin)',
+    office: 'SkyOne Kerala Headquarters & Primary Hub',
+    address: 'Air Cargo Terminal, Cochin International Airport (COK), Nedumbassery, Kochi, Kerala 683111',
+    phone: '+91-484-000-0000',
+    email: 'kochi.hub@skyonecourier.com',
+    hours: '24/7 Operations Hub',
+    isHub: true
+  },
+  {
     id: 'in-mum',
     country: 'India',
     region: 'South Asia',

@@ -23,50 +23,99 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" href="/skyone_logo_clean.png" />
     <link rel="apple-touch-icon" href="/skyone_logo_clean.png" />
-    <meta property="og:image" content="/skyone_logo_clean.png" />
-    <meta name="twitter:image" content="/skyone_logo_clean.png" />
+    <meta property="og:image" content="https://skyonecourier.com/skyone_logo_clean.png" />
+    <meta name="twitter:image" content="https://skyonecourier.com/skyone_logo_clean.png" />
 
     <!-- Performance: Preconnect & Load Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
+    <!-- LCP Preload: hero background image for faster Largest Contentful Paint -->
+    <link rel="preload" as="image" href="/skyone_global_courier_hero.png" fetchpriority="high" />
+
     <!-- Google Schema.org Organization & LogisticsService Structured Data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LogisticsService",
-      "name": "SkyOne International Courier Service",
-      "url": "https://skyonecourier.com",
-      "logo": "https://skyonecourier.com/skyone_logo_clean.png",
-      "image": "https://skyonecourier.com/skyone_logo_clean.png",
-      "description": "Cross-border international express delivery, commercial cargo logistics, and real-time shipment tracking.",
-      "telephone": "+91-22-8800-1200",
-      "email": "support@skyonecourier.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "SkyOne Cargo Terminal, International Airport Cargo Complex",
-        "addressLocality": "Mumbai",
-        "postalCode": "400099",
-        "addressCountry": "IN"
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": ["LocalBusiness", "CourierService"],
+        "name": "SkyOne International Courier Service",
+        "url": "https://skyonecourier.com",
+        "logo": "https://skyonecourier.com/skyone_logo_clean.png",
+        "image": "https://skyonecourier.com/skyone_logo_clean.png",
+        "description": "International courier and air cargo service based in Kerala, India. Doorstep pickup across all Kerala districts with express delivery to UAE, Saudi Arabia, UK, USA and 200+ countries.",
+        "telephone": "+91-484-000-0000",
+        "email": "support@skyonecourier.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Air Cargo Terminal, Cochin International Airport",
+          "addressLocality": "Kochi",
+          "addressRegion": "Kerala",
+          "postalCode": "683111",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 10.1520,
+          "longitude": 76.3919
+        },
+        "areaServed": [
+          "Kochi", "Thiruvananthapuram", "Kozhikode", "Thrissur",
+          "Malappuram", "Kannur", "Kollam", "Palakkad", "Kerala", "India"
+        ],
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+          "opens": "08:00",
+          "closes": "22:00"
+        },
+        "priceRange": "₹₹",
+        "currenciesAccepted": "INR",
+        "paymentAccepted": "Cash, Credit Card, Online Transfer"
       },
-      "areaServed": [
-        "India",
-        "United Kingdom",
-        "United Arab Emirates",
-        "United States",
-        "Europe",
-        "Singapore",
-        "Worldwide"
-      ],
-      "openingHours": "Mo-Sa 08:00-22:00",
-      "priceRange": "$$"
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "LogisticsService",
+        "name": "SkyOne International Courier Service",
+        "url": "https://skyonecourier.com",
+        "logo": "https://skyonecourier.com/skyone_logo_clean.png",
+        "description": "Cross-border international express delivery, commercial cargo logistics, and real-time shipment tracking from Kerala, India.",
+        "telephone": "+91-484-000-0000",
+        "email": "support@skyonecourier.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Air Cargo Terminal, Cochin International Airport",
+          "addressLocality": "Kochi",
+          "addressRegion": "Kerala",
+          "postalCode": "683111",
+          "addressCountry": "IN"
+        },
+        "areaServed": [
+          "India", "United Kingdom", "United Arab Emirates",
+          "United States", "Europe", "Singapore", "Australia",
+          "Saudi Arabia", "Qatar", "Oman", "Kuwait", "Canada"
+        ],
+        "openingHours": "Mo-Sa 08:00-22:00",
+        "priceRange": "₹₹"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "SkyOne International Courier Service",
+        "url": "https://skyonecourier.com",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://skyonecourier.com/track?awb={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
     </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=Cabinet+Grotesk:wght@700;800;900&display=swap" rel="stylesheet" />
   </head>
   <body class="bg-white text-slate-900 font-sans antialiased selection:bg-blue-600 selection:text-white">
     <div id="root"></div>

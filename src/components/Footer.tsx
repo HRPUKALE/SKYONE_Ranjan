@@ -38,7 +38,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
             </button>
 
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
-              SkyOne International Courier Service provides reliable cross-border express delivery, commercial air freight, cargo solutions, and real-time shipment tracking connecting India to over 50 destinations worldwide.
+              SkyOne is Kerala's trusted international courier service. Based at Cochin International Airport, we provide doorstep pickup across all Kerala districts with express delivery to UAE, Saudi Arabia, UK, USA and 200+ countries worldwide.
             </p>
 
             {/* Quick Contact Micro-items */}
@@ -86,6 +86,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
                   className="hover:text-white transition-colors cursor-pointer flex items-center gap-1 group"
                 >
                   <span className="group-hover:translate-x-1 transition-transform">Contact Desk</span>
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onNavigate('/locations')}
+                  className="hover:text-white transition-colors cursor-pointer flex items-center gap-1 group"
+                >
+                  <span className="group-hover:translate-x-1 transition-transform">Our Locations</span>
                 </button>
               </li>
             </ul>

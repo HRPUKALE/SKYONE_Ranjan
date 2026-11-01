@@ -58,8 +58,8 @@ export const ContactPage: React.FC = () => {
   return (
     <div className="py-14 bg-slate-50 min-h-screen">
       <SEO
-        title="Contact Us & 24/7 Air Cargo Operations Desk"
-        description="Connect with SkyOne dispatch coordinators, customer support officers, or corporate inquiry representatives in Mumbai and worldwide."
+        title="Contact SkyOne | International Courier Kerala — Get a Quote or Support"
+        description="Contact SkyOne International Courier in Kerala. Reach our team for shipment quotes, AWB tracking support, customs queries and corporate account enquiries. Available Mon–Sat 8am–10pm IST."
         canonicalPath="/contact"
       />
 

@@ -5,7 +5,8 @@ interface SEOProps {
   title: string;
   description?: string;
   canonicalPath?: string;
-  schema?: Record<string, any>;
+  /** Accept a single schema object or an array of schema objects for multiple JSON-LD blocks */
+  schema?: Record<string, any> | Record<string, any>[];
 }
 
 export const SEO: React.FC<SEOProps> = ({

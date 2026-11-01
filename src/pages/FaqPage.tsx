@@ -35,8 +35,8 @@ export const FaqPage: React.FC<FaqPageProps> = ({ onNavigate, onOpenQuote }) => 
   return (
     <div className="py-14 bg-slate-50 min-h-screen">
       <SEO
-        title="Frequently Asked Questions (FAQ) | Customs, Tracking & Delivery"
-        description="Find comprehensive answers to questions regarding international air courier procedures, AWB tracking, customs documentation, and prohibited items."
+        title="International Courier FAQ — Kerala Shipping Questions Answered | SkyOne"
+        description="Answers to common questions about international courier from Kerala: delivery times to Dubai and UK, AWB tracking, customs documents, prohibited items and door-to-door pickup."
         canonicalPath="/faq"
         schema={faqSchema}
       />

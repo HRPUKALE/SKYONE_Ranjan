@@ -55,21 +55,94 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
     '@type': 'Service',
     serviceType: service.title,
     provider: {
-      '@type': 'LogisticsService',
+      '@type': 'LocalBusiness',
       name: 'SkyOne International Courier Service',
-      url: 'https://skyonecourier.com'
+      url: 'https://skyonecourier.com',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Kochi',
+        addressRegion: 'Kerala',
+        addressCountry: 'IN',
+      }
     },
     description: service.shortDescription,
-    areaServed: 'Worldwide'
+    areaServed: ['Kerala', 'India', 'UAE', 'United Kingdom', 'United States', 'Saudi Arabia', 'Qatar', 'Oman']
+  };
+
+  // Per-slug SEO metadata for keyword-rich, geo-targeted titles
+  const seoMeta: Record<string, { title: string; description: string }> = {
+    'international-courier': {
+      title: 'International Courier Service from Kerala | SkyOne — 2–4 Day Delivery',
+      description: 'Fast, secure international courier from Kerala with doorstep pickup. Documents, parcels and commercial goods delivered to UAE, UK, USA and 200+ countries in 2–4 business days.',
+    },
+    'express-delivery': {
+      title: 'Express International Courier from Kerala | 24–48 Hour Delivery | SkyOne',
+      description: 'Next-flight-out express courier from Kerala. Urgent documents, contracts and time-critical parcels delivered internationally in 24–48 hours with real-time AWB tracking.',
+    },
+    'air-freight': {
+      title: 'Air Freight from Kochi Airport | Commercial Cargo to UAE, UK & Global | SkyOne',
+      description: 'Commercial air freight solutions from Cochin International Airport (COK). Heavy cargo, palletized freight and bulk shipments to Gulf, Europe and worldwide in 3–5 business days.',
+    },
+    'cargo': {
+      title: 'Cargo Services from Kerala | Heavy Freight & Commercial Shipments | SkyOne',
+      description: 'Reliable heavy cargo and multimodal freight from Kerala. Bulk commercial goods, project cargo and oversized shipments to global destinations in 5–7 business days.',
+    },
+    'door-to-door': {
+      title: 'Door-to-Door International Delivery from Kerala | SkyOne Courier',
+      description: 'Complete door-to-door international courier from Kerala. We collect from your doorstep across all Kerala districts and deliver to the recipient\'s address worldwide in 3–6 days.',
+    },
+    'customs-clearance': {
+      title: 'Customs Clearance Services | International Export from Kerala | SkyOne',
+      description: 'Expert customs brokerage and clearance for international shipments from Kerala. HS code classification, duty calculation and pre-arrival electronic filing for smooth export.',
+    },
+    'e-commerce-logistics': {
+      title: 'E-Commerce International Shipping from India | SkyOne Cross-Border Logistics',
+      description: 'Cross-border e-commerce fulfillment from India. Shopify and WooCommerce integration, DDP delivery, branded tracking pages and international returns management.',
+    },
+    'document-delivery': {
+      title: 'International Document Courier from Kerala | Visa, Legal & Certificate Delivery',
+      description: 'Secure express document courier from Kerala for NRIs. Visa applications, degree certificates, legal affidavits and employment documents delivered to Gulf countries and worldwide in 2–3 days.',
+    },
+  };
+
+  const pageSeo = seoMeta[service.slug] ?? {
+    title: `${service.title} | International Courier Service from Kerala | SkyOne`,
+    description: service.shortDescription,
+  };
+
+  // BreadcrumbList schema for sitelinks and rich results
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://skyonecourier.com/'
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Services',
+        item: 'https://skyonecourier.com/services'
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: service.title,
+        item: `https://skyonecourier.com/services/${service.slug}`
+      }
+    ]
   };
 
   return (
     <div className="py-12 bg-slate-50 min-h-screen">
       <SEO
-        title={`${service.title} | International Logistics`}
-        description={service.shortDescription}
+        title={pageSeo.title}
+        description={pageSeo.description}
         canonicalPath={`/services/${service.slug}`}
-        schema={serviceSchema}
+        schema={[serviceSchema, breadcrumbSchema]}
       />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

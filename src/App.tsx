@@ -20,6 +20,7 @@ const FaqPage = lazy(() => import('./pages/FaqPage').then(m => ({ default: m.Faq
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage').then(m => ({ default: m.PrivacyPage })));
 const TermsPage = lazy(() => import('./pages/TermsPage').then(m => ({ default: m.TermsPage })));
 const ProhibitedItemsPage = lazy(() => import('./pages/ProhibitedItemsPage').then(m => ({ default: m.ProhibitedItemsPage })));
+const LocationsPage = lazy(() => import('./pages/LocationsPage').then(m => ({ default: m.LocationsPage })));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then(m => ({ default: m.NotFoundPage })));
 
 export default function App() {
@@ -130,6 +131,14 @@ export default function App() {
       return (
         <ProhibitedItemsPage
           onContactClick={() => navigate('/contact')}
+        />
+      );
+    }
+
+    if (currentPath === '/locations') {
+      return (
+        <LocationsPage
+          onOpenQuote={() => setIsQuoteModalOpen(true)}
         />
       );
     }

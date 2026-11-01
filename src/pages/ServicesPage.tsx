@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+import React, { useState } from "react";
 import { SERVICES_LIST } from "../data/servicesData";
 import {
   ArrowRight, ArrowUpRight, Plane, Globe, Zap, Package, Truck,
@@ -87,8 +87,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onSelectService, onO
       style={{ background: "linear-gradient(135deg, #f0f7ff 0%, #e8f0fd 35%, #eef4ff 65%, #f8faff 100%)" }}
     >
       <SEO
-        title="International Courier & Air Cargo Services | SkyOne"
-        description="Comprehensive cross-border logistics: priority air express, commercial cargo freight, customs brokerage, and door-to-door delivery worldwide."
+        title="International Courier & Cargo Services from Kerala | SkyOne"
+        description="Full range of international logistics from Kerala: express air courier, door-to-door delivery, air freight, customs clearance and document delivery to 200+ countries."
         canonicalPath="/services"
       />
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { AboutHero } from '../components/AboutHero';
 import { ValuesSection } from '../components/ValuesSection';
 import { WhySkyOne } from '../components/WhySkyOne';
 import {
@@ -60,13 +61,6 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenQuote })
       icon: Award,
       accent: '#E5192D',
     },
-  ];
-
-  const keralaStats = [
-    { value: '80%', label: "of Kerala's global diaspora in GCC countries", icon: Users },
-    { value: '2L Cr+', label: 'NRI remittances to Kerala annually (INR)', icon: TrendingUp },
-    { value: '60%', label: "of Kerala's air cargo via Cochin Airport", icon: PlaneTakeoff },
-    { value: '220+', label: 'Countries we connect from Kerala', icon: Globe },
   ];
 
   const whyKeralaAdvantage = [
@@ -140,63 +134,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenQuote })
       />
 
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden py-20 md:py-28 border-b border-slate-100">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#f0f7ff] via-white to-[#fff5f5] pointer-events-none" />
-        <div className="absolute inset-0 pointer-events-none opacity-[0.04]" aria-hidden="true">
-          <svg className="w-full h-full" viewBox="0 0 1200 600" fill="none">
-            {Array.from({ length: 20 }).map((_, r) =>
-              Array.from({ length: 35 }).map((_, c) => (
-                <circle key={`${r}-${c}`} cx={c * 36 + 8} cy={r * 32 + 8} r="1.5" fill="#024BB2" />
-              ))
-            )}
-          </svg>
-        </div>
-        <div className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none overflow-hidden">
-          <svg viewBox="0 0 1440 64" fill="none" className="w-full h-full" preserveAspectRatio="none">
-            <path d="M0,64 Q360,10 720,48 T1440,20 L1440,64Z" fill="#024BB2" opacity="0.06" />
-            <path d="M0,64 Q480,20 960,52 T1440,32 L1440,64Z" fill="#E5192D" opacity="0.04" />
-          </svg>
-        </div>
-
-        <ScrollReveal className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-blue-200 shadow-sm text-[#024BB2] text-xs font-bold uppercase tracking-wider">
-            <span className="text-base">🌴</span>
-            <span>Born in Kerala · Built for the World</span>
-          </div>
-
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-950 tracking-tight font-display leading-[1.05]">
-            {"Kerala's Gateway to "}
-            <span className="text-[#024BB2]">Global</span>
-            {" "}
-            <span className="text-[#E5192D]">Delivery.</span>
-          </h1>
-
-          <p className="text-base sm:text-xl text-slate-600 leading-relaxed font-normal max-w-3xl mx-auto">
-            SkyOne International Courier Service was founded in Kerala to solve a real problem — millions of Keralites
-            working across the Gulf, UK, USA, and beyond need a courier they can{' '}
-            <strong className="text-slate-800">truly trust</strong>. We are that courier.
-          </p>
-
-          <div className="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
-            {keralaStats.map((stat, i) => {
-              const Icon = stat.icon;
-              return (
-                <div
-                  key={i}
-                  className="bg-white/90 backdrop-blur-sm rounded-2xl border border-slate-200 shadow-sm p-4 text-center hover:border-[#024BB2] transition-all"
-                >
-                  <Icon className="w-5 h-5 text-[#024BB2] mx-auto mb-1.5" />
-                  <div className="text-xl sm:text-2xl font-black text-slate-950">{stat.value}</div>
-                  <div className="text-[10px] sm:text-xs text-slate-500 leading-tight mt-0.5">{stat.label}</div>
-                </div>
-              );
-            })}
-          </div>
-        </ScrollReveal>
-      </section>
+      <AboutHero onNavigate={onNavigate} />
 
       {/* OUR STORY */}
-      <section className="py-20 border-b border-slate-100">
+      <section id="our-story" className="py-20 border-b border-slate-100">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-5">
