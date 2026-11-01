@@ -151,7 +151,8 @@ SkyOne International Courier Service
     console.error('[Mailer] Error sending quote email:', err.message);
   }
 
-  // Forward to Google Sheet Webhook if configured
+  // Forward to Google Sheet Webhook (commented out for now)
+  /*
   await forwardToGoogleSheet({
     type: 'QUOTE',
     referenceId: data.referenceId,
@@ -165,6 +166,7 @@ SkyOne International Courier Service
     weight: data.weight,
     message: data.message || ''
   });
+  */
 }
 
 /**
@@ -256,7 +258,8 @@ SkyOne International Courier Service
     console.error('[Mailer] Error sending contact email:', err.message);
   }
 
-  // Forward to Google Sheet Webhook if configured
+  // Forward to Google Sheet Webhook (commented out for now)
+  /*
   await forwardToGoogleSheet({
     type: 'CONTACT',
     referenceId: data.referenceId,
@@ -270,11 +273,13 @@ SkyOne International Courier Service
     weight: '-',
     message: data.message
   });
+  */
 }
 
 /**
- * Forward lead directly into Google Sheets / Excel Webhook
+ * Forward lead directly into Google Sheets / Excel Webhook (commented out for now)
  */
+/*
 async function forwardToGoogleSheet(payload: Record<string, any>) {
   const webhookUrl = process.env.GOOGLE_SHEET_URL || process.env.LEAD_WEBHOOK_URL;
   if (!webhookUrl) return;
@@ -290,4 +295,5 @@ async function forwardToGoogleSheet(payload: Record<string, any>) {
     console.error('[GoogleSheet] Error forwarding to spreadsheet webhook:', err.message);
   }
 }
+*/
 

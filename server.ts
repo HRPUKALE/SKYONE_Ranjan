@@ -577,7 +577,8 @@ async function notifyLeadDispatch(type: 'QUOTE' | 'CONTACT', payload: Record<str
     console.error('[server.ts] Error sending notification email:', err.message);
   }
 
-  // 3. Webhook forwarding if configured (Slack / Teams / Zapier / CRM)
+  // 3. Webhook forwarding (commented out for now)
+  /*
   const webhookUrl = process.env.LEAD_WEBHOOK_URL;
   if (webhookUrl) {
     try {
@@ -595,6 +596,7 @@ async function notifyLeadDispatch(type: 'QUOTE' | 'CONTACT', payload: Record<str
       console.error(`Failed to forward lead to webhook (${webhookUrl}):`, err.message);
     }
   }
+  */
 }
 
 /**
