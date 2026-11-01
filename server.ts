@@ -4,6 +4,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import helmet from 'helmet';
 import cors from 'cors';
+import { sendQuoteEmail, sendContactEmail } from './api/_mailer';
 
 dotenv.config();
 
@@ -545,7 +546,38 @@ async function notifyLeadDispatch(type: 'QUOTE' | 'CONTACT', payload: Record<str
   }
   console.log(`=======================================================\n`);
 
-  // 2. Webhook forwarding if configured (Slack / Teams / Zapier / CRM)
+  // 2. Automated Email & Google Sheet notification
+  try {
+    if (type === 'QUOTE') {
+      await sendQuoteEmail({
+        referenceId: payload.referenceId,
+        name: payload.name,
+        email: payload.email,
+        phone: payload.phone,
+        pickupCountry: payload.pickupCountry,
+        pickupState: payload.pickupState,
+        pickupCity: payload.pickupCity,
+        destinationCountry: payload.destinationCountry,
+        destinationCity: payload.destinationCity,
+        weight: payload.weight,
+        shipmentType: payload.shipmentType || 'Household Parcel',
+        message: payload.message
+      });
+    } else {
+      await sendContactEmail({
+        referenceId: payload.referenceId,
+        name: payload.name,
+        email: payload.email,
+        phone: payload.phone,
+        subject: payload.subject || 'General Inquiry',
+        message: payload.message
+      });
+    }
+  } catch (err: any) {
+    console.error('[server.ts] Error sending notification email:', err.message);
+  }
+
+  // 3. Webhook forwarding if configured (Slack / Teams / Zapier / CRM)
   const webhookUrl = process.env.LEAD_WEBHOOK_URL;
   if (webhookUrl) {
     try {

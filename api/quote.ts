@@ -1,3 +1,5 @@
+import { sendQuoteEmail } from './_mailer';
+
 function sanitizeString(input: unknown, maxLength = 255): string {
   if (typeof input !== 'string') return '';
   return input
@@ -33,6 +35,7 @@ export default async function handler(req: any, res: any) {
     phone: rawPhone,
     company: rawCompany,
     pickupCountry: rawPickupCountry,
+    pickupState: rawPickupState,
     pickupCity: rawPickupCity,
     destinationCountry: rawDestinationCountry,
     destinationCity: rawDestinationCity,
@@ -56,6 +59,7 @@ export default async function handler(req: any, res: any) {
   const phone = sanitizeString(rawPhone, 30);
   const company = sanitizeString(rawCompany, 100);
   const pickupCountry = sanitizeString(rawPickupCountry, 60);
+  const pickupState = sanitizeString(rawPickupState, 60);
   const pickupCity = sanitizeString(rawPickupCity, 60);
   const destinationCountry = sanitizeString(rawDestinationCountry, 60);
   const destinationCity = sanitizeString(rawDestinationCity, 60);
@@ -75,35 +79,23 @@ export default async function handler(req: any, res: any) {
 
   const quoteRef = 'SKY-Q' + Math.floor(100000 + Math.random() * 900000);
 
-  // Webhook forwarding if configured
-  const webhookUrl = process.env.LEAD_WEBHOOK_URL;
-  if (webhookUrl) {
-    try {
-      await fetch(webhookUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          service: 'SkyOne International Courier',
-          type: 'QUOTE',
-          referenceId: quoteRef,
-          name,
-          email,
-          phone,
-          company,
-          pickupCountry,
-          pickupCity,
-          destinationCountry,
-          destinationCity,
-          weight: parsedWeight,
-          shipmentType,
-          dimensions,
-          message
-        })
-      });
-    } catch (err: any) {
-      console.error('Webhook error:', err.message);
-    }
-  }
+  // Send Email & Forward to Google Sheet
+  await sendQuoteEmail({
+    referenceId: quoteRef,
+    name,
+    email,
+    phone,
+    pickupCountry,
+    pickupState,
+    pickupCity,
+    destinationCountry,
+    destinationCity,
+    weight: parsedWeight,
+    shipmentType,
+    message
+  }).catch((err: any) => {
+    console.error('[Quote] Email dispatch error:', err.message);
+  });
 
   return res.status(200).json({
     success: true,

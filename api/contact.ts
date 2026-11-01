@@ -1,3 +1,5 @@
+import { sendContactEmail } from './_mailer';
+
 function sanitizeString(input: unknown, maxLength = 255): string {
   if (typeof input !== 'string') return '';
   return input
@@ -56,27 +58,17 @@ export default async function handler(req: any, res: any) {
 
   const ticketId = 'SKY-T' + Math.floor(10000 + Math.random() * 90000);
 
-  const webhookUrl = process.env.LEAD_WEBHOOK_URL;
-  if (webhookUrl) {
-    try {
-      await fetch(webhookUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          service: 'SkyOne International Courier',
-          type: 'CONTACT',
-          referenceId: ticketId,
-          name,
-          email,
-          phone,
-          subject,
-          message
-        })
-      });
-    } catch (err: any) {
-      console.error('Webhook error:', err.message);
-    }
-  }
+  // Send Email & Forward to Google Sheet
+  await sendContactEmail({
+    referenceId: ticketId,
+    name,
+    email,
+    phone,
+    subject,
+    message
+  }).catch((err: any) => {
+    console.error('[Contact] Email dispatch error:', err.message);
+  });
 
   return res.status(200).json({
     success: true,
