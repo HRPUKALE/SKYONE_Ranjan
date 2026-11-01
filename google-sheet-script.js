@@ -58,3 +58,4 @@ function doPost(e) {
 function doGet(e) {
   return ContentService.createTextOutput("SkyOne Google Sheet Webhook is active and listening for POST requests.");
 }
+
