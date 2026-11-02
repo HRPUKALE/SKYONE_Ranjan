@@ -68,22 +68,13 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ onContactClick }) => {
                   </motion.div>
                 </button>
 
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      id={`faq-answer-${faq.id}`}
-                      initial={shouldReduceMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
-                      animate={shouldReduceMotion ? { opacity: 1 } : { height: 'auto', opacity: 1 }}
-                      exit={shouldReduceMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
-                      transition={{ duration: DURATION.standard, ease: EASING.snappy }}
-                      className="overflow-hidden"
-                    >
-                      <div className="px-5 sm:px-6 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
-                        <p>{faq.answer}</p>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                {/* Hidden container so all FAQ answers exist in the rendered DOM for crawlers */}
+                <div
+                  id={`faq-answer-${faq.id}`}
+                  className={`${isOpen ? 'block' : 'hidden'} px-5 sm:px-6 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100`}
+                >
+                  <p>{faq.answer}</p>
+                </div>
               </ScrollReveal>
             );
           })}

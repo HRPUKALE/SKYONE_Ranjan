@@ -26,8 +26,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenQuote }) =
   return (
     <div className="space-y-0">
       <SEO
-        title="International Courier Service from Kerala | SkyOne — USA, UK, Canada & Beyond"
-        description="Kerala's trusted international courier. Door-to-door delivery to USA, UK, Canada, Europe, Germany, Ireland, New Zealand, UAE, Saudi Arabia and 200+ countries. Doorstep pickup across all Kerala districts."
+        title="International Courier from Kerala | SkyOne Courier"
+        description="Send parcels, documents and NRI papers from Kerala to the USA, UK, Canada, UAE and worldwide. Doorstep pickup across Kerala. Request a quote."
         canonicalPath="/"
       />
 

@@ -57,7 +57,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
     provider: {
       '@type': 'LocalBusiness',
       name: 'SkyOne International Courier Service',
-      url: 'https://skyonecourier.com',
+      url: 'https://www.skyoneinternational.com',
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'SNDP Union Bldg, Ground Floor, Shop No 744, Near My G Showroom, M C Road',
@@ -122,19 +122,19 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://skyonecourier.com/'
+        item: 'https://www.skyoneinternational.com/'
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Services',
-        item: 'https://skyonecourier.com/services'
+        item: 'https://www.skyoneinternational.com/services'
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: service.title,
-        item: `https://skyonecourier.com/services/${service.slug}`
+        item: `https://www.skyoneinternational.com/services/${service.slug}`
       }
     ]
   };

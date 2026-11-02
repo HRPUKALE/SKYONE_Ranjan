@@ -40,7 +40,7 @@ app.use(helmet({
 // Security: CORS origin configuration
 const allowedOrigins = process.env.ALLOWED_ORIGINS
   ? process.env.ALLOWED_ORIGINS.split(',').map(s => s.trim())
-  : ['http://localhost:3000', 'http://127.0.0.1:3000', 'https://skyonecourier.com'];
+  : ['http://localhost:3000', 'http://127.0.0.1:3000', 'https://www.skyoneinternational.com'];
 
 app.use(cors({
   origin: (origin, callback) => {

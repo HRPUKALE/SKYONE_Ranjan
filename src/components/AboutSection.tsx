@@ -87,7 +87,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onLearnMore, onGetQu
               <div className="relative h-[360px] sm:h-[420px] w-full">
                 <img
                   src={logisticsHubImg}
-                  alt="SkyOne High-Tech Logistics Sorting Hub"
+                  alt="SkyOne air cargo sorting and dispatch facility"
+                  width="500"
+                  height="420"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                 />

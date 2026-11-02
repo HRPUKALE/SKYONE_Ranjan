@@ -111,8 +111,18 @@ export const Hero: React.FC<HeroProps> = ({ onTrackClick, onQuoteClick }) => {
               <span className="w-10 h-[2px] bg-[#024BB2]/70 inline-block ml-1" />
             </motion.div>
 
-            {/* Main Headline */}
+            {/* Primary Page H1 */}
             <motion.h1
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: DURATION.standard, delay: 0.05, ease: EASING.flight }}
+              className="text-base sm:text-lg font-bold text-[#024BB2] tracking-normal"
+            >
+              International Courier Service from Kerala
+            </motion.h1>
+
+            {/* Main Headline & Tagline */}
+            <motion.p
               initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: DURATION.standard + 0.1, delay: 0.1, ease: EASING.cinematic }}
@@ -134,7 +144,7 @@ export const Hero: React.FC<HeroProps> = ({ onTrackClick, onQuoteClick }) => {
                   />
                 </svg>
               </span>
-            </motion.h1>
+            </motion.p>
 
             {/* Supporting Paragraph */}
             <motion.p
@@ -289,13 +299,13 @@ export const Hero: React.FC<HeroProps> = ({ onTrackClick, onQuoteClick }) => {
                   </div>
                 </div>
 
-                {/* Status & Metrics Sub-panel */}
-                <div className="bg-[#061220]/90 rounded-xl p-3 border border-blue-900/50 space-y-2">
+                {/* Status & Metrics Sub-panel (Illustration) */}
+                <div className="bg-[#061220]/90 rounded-xl p-3 border border-blue-900/50 space-y-2" aria-label="Tracking interface illustration" role="img">
                   <div className="flex items-center justify-between text-[11px]">
-                    <span className="text-slate-400 font-medium">Current Transit Phase</span>
+                    <span className="text-slate-400 font-medium">Transit Monitoring</span>
                     <span className="text-emerald-400 font-semibold flex items-center gap-1.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-                      Direct Air Linehaul
+                      Scheduled Air Linehaul
                     </span>
                   </div>
 

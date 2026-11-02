@@ -87,9 +87,27 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onSelectService, onO
       style={{ background: "linear-gradient(135deg, #f0f7ff 0%, #e8f0fd 35%, #eef4ff 65%, #f8faff 100%)" }}
     >
       <SEO
-        title="International Courier & Cargo Services from Kerala | SkyOne"
-        description="Full range of international logistics from Kerala: express air courier, door-to-door delivery, air freight, customs clearance and document delivery to 200+ countries."
+        title="International Courier Services from Kerala | SkyOne"
+        description="Document and parcel courier, express delivery, air cargo and export customs support from Kerala, with AWB tracking and doorstep pickup."
         canonicalPath="/services"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Home',
+              item: 'https://www.skyoneinternational.com/'
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Services',
+              item: 'https://www.skyoneinternational.com/services'
+            }
+          ]
+        }}
       />
 
       {/* Background decorations */}

@@ -5,6 +5,7 @@ interface SEOProps {
   title: string;
   description?: string;
   canonicalPath?: string;
+  noindex?: boolean;
   /** Accept a single schema object or an array of schema objects for multiple JSON-LD blocks */
   schema?: Record<string, any> | Record<string, any>[];
 }
@@ -13,9 +14,10 @@ export const SEO: React.FC<SEOProps> = ({
   title,
   description = 'SkyOne International Courier Service provides reliable cross-border express delivery, air cargo, and real-time shipment tracking worldwide.',
   canonicalPath = '/',
+  noindex = false,
   schema
 }) => {
-  const siteUrl = 'https://skyonecourier.com';
+  const siteUrl = 'https://www.skyoneinternational.com';
   const fullTitle = title.includes('SkyOne')
     ? title
     : `${title} | SkyOne International Courier Service`;
@@ -34,6 +36,15 @@ export const SEO: React.FC<SEOProps> = ({
     }
     metaDesc.setAttribute('content', description);
 
+    // Robots meta for noindex
+    let metaRobots = document.querySelector('meta[name="robots"]');
+    if (!metaRobots) {
+      metaRobots = document.createElement('meta');
+      metaRobots.setAttribute('name', 'robots');
+      document.head.appendChild(metaRobots);
+    }
+    metaRobots.setAttribute('content', noindex ? 'noindex, nofollow' : 'index, follow');
+
     // 3. Update Canonical Link
     let linkCanonical = document.querySelector('link[rel="canonical"]');
     if (!linkCanonical) {
@@ -49,7 +60,8 @@ export const SEO: React.FC<SEOProps> = ({
       'og:description': description,
       'og:url': canonicalUrl,
       'og:type': 'website',
-      'og:site_name': SKYONE_CONFIG.companyName
+      'og:site_name': SKYONE_CONFIG.companyName,
+      'og:image': `${siteUrl}/skyone_logo_clean.png`
     };
 
     Object.entries(ogTags).forEach(([property, content]) => {
@@ -61,6 +73,14 @@ export const SEO: React.FC<SEOProps> = ({
       }
       meta.setAttribute('content', content);
     });
+
+    let twitterImg = document.querySelector('meta[name="twitter:image"]');
+    if (!twitterImg) {
+      twitterImg = document.createElement('meta');
+      twitterImg.setAttribute('name', 'twitter:image');
+      document.head.appendChild(twitterImg);
+    }
+    twitterImg.setAttribute('content', `${siteUrl}/skyone_logo_clean.png`);
 
     // 5. Update or Inject Page-Level Schema.org JSON-LD
     let scriptTag = document.getElementById('page-jsonld-schema') as HTMLScriptElement | null;

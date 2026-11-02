@@ -37,9 +37,27 @@ export const ProhibitedItemsPage: React.FC<ProhibitedItemsPageProps> = ({ onCont
   return (
     <div className="py-14 bg-slate-50 min-h-screen">
       <SEO
-        title="Prohibited Items & Aviation Dangerous Goods Guide"
-        description="Review international air transport safety regulations, prohibited commodities, hazardous goods guidelines, and dual-view screening requirements."
+        title="Items You Can't Send by International Courier | SkyOne"
+        description="See which items are banned or restricted for international courier from India, and how to check before you ship."
         canonicalPath="/prohibited-items"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Home',
+              item: 'https://www.skyoneinternational.com/'
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Prohibited Items',
+              item: 'https://www.skyoneinternational.com/prohibited-items'
+            }
+          ]
+        }}
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

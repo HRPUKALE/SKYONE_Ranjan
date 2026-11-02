@@ -191,6 +191,8 @@ export const FeaturedService: React.FC<FeaturedServiceProps> = ({ onLearnMore, o
                 <img
                   src={featuredCargoImg}
                   alt="SkyOne cargo aircraft active air freight at sunset"
+                  width="720"
+                  height="480"
                   className="w-full h-full object-cover object-center"
                   loading="lazy"
                 />

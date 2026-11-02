@@ -229,15 +229,15 @@ export const TrackingSection: React.FC<TrackingSectionProps> = ({
               </form>
             </div>
 
-            {/* Right Zone: Live Tracking Badge */}
-            <div className="hidden lg:flex items-center gap-3 bg-slate-50/90 border border-slate-200/90 rounded-2xl px-5 py-3.5 shrink-0">
+            {/* Right Zone: Live Tracking Badge (Illustration) */}
+            <div className="hidden lg:flex items-center gap-3 bg-slate-50/90 border border-slate-200/90 rounded-2xl px-5 py-3.5 shrink-0" aria-label="Tracking status illustration" role="img">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
               </span>
               <div className="text-left">
                 <div className="text-xs font-extrabold text-slate-900 leading-tight">Live Tracking</div>
-                <div className="text-[10px] text-slate-500 leading-tight">Your shipment is on the move</div>
+                <div className="text-[10px] text-slate-500 leading-tight">Active AWB status updates</div>
               </div>
             </div>
 

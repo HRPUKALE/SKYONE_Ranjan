@@ -205,7 +205,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
               </li>
               <li>
                 <span className="text-[11px] text-slate-500 block pt-2">
-                  Operating 24/7 International Cargo Gateways
+                  Operating Hours: Mon–Sat 08:30 AM – 08:30 PM IST
                 </span>
               </li>
             </ul>

@@ -58,9 +58,27 @@ export const ContactPage: React.FC = () => {
   return (
     <div className="py-14 bg-slate-50 min-h-screen">
       <SEO
-        title="Contact SkyOne | International Courier Kerala — Get a Quote or Support"
-        description="Contact SkyOne International Courier in Kerala. Reach our team for shipment quotes, AWB tracking support, customs queries and corporate account enquiries. Available Mon–Sat 8am–10pm IST."
+        title="Contact SkyOne Courier | Thiruvalla, Kerala"
+        description="Call or WhatsApp +91 79075 90062 to book doorstep pickup in Kerala. Visit us on M C Road, Thiruvalla. Mon-Sat 8:30 AM-8:30 PM."
         canonicalPath="/contact"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Home',
+              item: 'https://www.skyoneinternational.com/'
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Contact',
+              item: 'https://www.skyoneinternational.com/contact'
+            }
+          ]
+        }}
       />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -300,7 +318,7 @@ export const ContactPage: React.FC = () => {
                     </>
                   ) : (
                     <>
-                      <span>TRANSMIT INQUIRY TO DESK</span>
+                      <span>Send enquiry</span>
                       <Send className="w-4 h-4 text-[#E5192D]" />
                     </>
                   )}

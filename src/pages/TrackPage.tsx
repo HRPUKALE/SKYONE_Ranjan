@@ -17,9 +17,28 @@ export const TrackPage: React.FC<TrackPageProps> = ({ initialAwb, onNavigate, on
   return (
     <div className="py-10 bg-slate-50 min-h-screen">
       <SEO
-        title={effectiveAwb ? `Track ${effectiveAwb} — SkyOne Shipment Status` : 'Track Your Shipment | SkyOne International Courier Kerala'}
-        description="Track your SkyOne international courier in real-time. Enter your AWB number to see live flight status, customs clearance updates and estimated delivery to USA, UK, Canada, Europe, Germany, Ireland, New Zealand, UAE and beyond."
+        title={effectiveAwb ? `Track ${effectiveAwb} | SkyOne International Courier` : 'Track Your Shipment | SkyOne International Courier'}
+        description="Enter your SkyOne AWB number to see your shipment status and delivery progress."
         canonicalPath={effectiveAwb ? `/track?awb=${encodeURIComponent(effectiveAwb)}` : '/track'}
+        noindex={Boolean(effectiveAwb)}
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Home',
+              item: 'https://www.skyoneinternational.com/'
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Track Shipment',
+              item: 'https://www.skyoneinternational.com/track'
+            }
+          ]
+        }}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

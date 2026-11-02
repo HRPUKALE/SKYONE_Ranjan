@@ -2,120 +2,114 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Core Landing & Tracking -->
   <url>
-    <loc>https://skyonecourier.com/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <loc>https://www.skyoneinternational.com/</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://skyonecourier.com/track</loc>
-    <lastmod>2026-11-01</lastmod>
+    <loc>https://www.skyoneinternational.com/track</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://skyonecourier.com/quote</loc>
-    <lastmod>2026-11-01</lastmod>
+    <loc>https://www.skyoneinternational.com/quote</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Services Hierarchy -->
   <url>
-    <loc>https://skyonecourier.com/services</loc>
-    <lastmod>2026-11-01</lastmod>
+    <loc>https://www.skyoneinternational.com/services</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skyonecourier.com/services/international-courier</loc>
-    <lastmod>2026-11-01</lastmod>
+    <loc>https://www.skyoneinternational.com/services/international-courier</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skyonecourier.com/services/express-delivery</loc>
-    <lastmod>2026-11-01</lastmod>
+    <loc>https://www.skyoneinternational.com/services/express-delivery</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skyonecourier.com/services/cargo</loc>
-    <lastmod>2026-11-01</lastmod>
+    <loc>https://www.skyoneinternational.com/services/cargo</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skyonecourier.com/services/air-freight</loc>
-    <lastmod>2026-11-01</lastmod>
+    <loc>https://www.skyoneinternational.com/services/air-freight</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skyonecourier.com/services/door-to-door</loc>
-    <lastmod>2026-11-01</lastmod>
+    <loc>https://www.skyoneinternational.com/services/door-to-door</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skyonecourier.com/services/customs-clearance</loc>
-    <lastmod>2026-11-01</lastmod>
+    <loc>https://www.skyoneinternational.com/services/customs-clearance</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skyonecourier.com/services/e-commerce-logistics</loc>
-    <lastmod>2026-11-01</lastmod>
+    <loc>https://www.skyoneinternational.com/services/e-commerce-logistics</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skyonecourier.com/services/document-delivery</loc>
-    <lastmod>2026-11-01</lastmod>
+    <loc>https://www.skyoneinternational.com/services/document-delivery</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Network & Company -->
   <url>
-    <loc>https://skyonecourier.com/locations</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://skyonecourier.com/about</loc>
-    <lastmod>2026-11-01</lastmod>
+    <loc>https://www.skyoneinternational.com/about</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skyonecourier.com/contact</loc>
-    <lastmod>2026-11-01</lastmod>
+    <loc>https://www.skyoneinternational.com/contact</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skyonecourier.com/faq</loc>
-    <lastmod>2026-11-01</lastmod>
+    <loc>https://www.skyoneinternational.com/faq</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skyonecourier.com/prohibited-items</loc>
-    <lastmod>2026-11-01</lastmod>
+    <loc>https://www.skyoneinternational.com/prohibited-items</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://skyonecourier.com/privacy</loc>
-    <lastmod>2026-10-04</lastmod>
+    <loc>https://www.skyoneinternational.com/privacy</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://skyonecourier.com/terms</loc>
-    <lastmod>2026-10-04</lastmod>
+    <loc>https://www.skyoneinternational.com/terms</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

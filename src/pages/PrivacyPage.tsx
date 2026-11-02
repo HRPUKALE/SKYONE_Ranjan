@@ -70,7 +70,7 @@ export const PrivacyPage: React.FC = () => {
               5. Contacting the Compliance Officer
             </h2>
             <p>
-              If you have inquiries regarding the storage, correction, or deletion of shipment data, please reach our data privacy officer at <span className="font-semibold text-[#024BB2]">privacy@skyonecourier.com</span>.
+              If you have inquiries regarding the storage, correction, or deletion of shipment data, please reach our data privacy officer at <span className="font-semibold text-[#024BB2]">skyonesupport@gmail.com</span>.
             </p>
           </section>
         </div>

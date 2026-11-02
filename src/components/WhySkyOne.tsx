@@ -104,7 +104,7 @@ export const WhySkyOne: React.FC = () => {
                   </div>
 
                   <div className="pt-5 mt-4 border-t border-slate-200/60 flex items-center gap-1 text-xs font-bold text-slate-400 group-hover:text-[#E5192D] transition-colors">
-                    <span>SkyOne Standard</span>
+                    <span>Learn More</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </motion.div>

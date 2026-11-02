@@ -71,9 +71,27 @@ export const QuotePage: React.FC = () => {
   return (
     <div className="py-14 bg-slate-50 min-h-screen">
       <SEO
-        title="Request an International Shipping Quote"
-        description="Get verified international air freight tariffs, commercial parcel shipping rates, and express delivery quotes from SkyOne logistics specialists."
+        title="Request an International Shipping Quote | SkyOne Courier"
+        description="Get confirmed international courier tariffs and express delivery quotes from Kerala to USA, UK, Canada, UAE and worldwide."
         canonicalPath="/quote"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Home',
+              item: 'https://www.skyoneinternational.com/'
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Request Quote',
+              item: 'https://www.skyoneinternational.com/quote'
+            }
+          ]
+        }}
       />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

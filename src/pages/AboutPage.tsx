@@ -1,7 +1,5 @@
 import React from 'react';
 import { AboutHero } from '../components/AboutHero';
-import { ValuesSection } from '../components/ValuesSection';
-import { WhySkyOne } from '../components/WhySkyOne';
 import {
   ArrowRight,
   Globe,
@@ -131,9 +129,27 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenQuote })
   return (
     <div className="space-y-0 bg-white">
       <SEO
-        title="About SkyOne | Kerala's Best International Courier Service"
-        description="SkyOne International Courier — born in Kerala, built for Kerala. Serving NRIs across USA, UK, Canada, Europe, Germany, Ireland, New Zealand, UAE, Gulf and beyond with fast, trusted courier from all of Kerala."
+        title="About SkyOne | Kerala International Courier, Thiruvalla"
+        description="SkyOne International Courier is based in Thiruvalla, Pathanamthitta, serving NRI families, students and exporters across Kerala."
         canonicalPath="/about"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Home',
+              item: 'https://www.skyoneinternational.com/'
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'About Us',
+              item: 'https://www.skyoneinternational.com/about'
+            }
+          ]
+        }}
       />
 
       {/* HERO SECTION */}
@@ -181,9 +197,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenQuote })
                   'Direct Gulf corridors: UAE, Saudi Arabia, Qatar, Oman, Kuwait',
                   'Specialist NRI document handling',
                   'Doorstep pickup across all Kerala districts',
-                  'Express delivery to 220+ countries worldwide',
+                  'Express delivery to global destinations',
                   'Customs pre-clearance expertise',
-                  '24/7 Malayalam & English customer support',
+                  'Malayalam & English customer support (Mon-Sat 8:30 AM-8:30 PM)',
                 ].map((point, i) => (
                   <div key={i} className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#024BB2] shrink-0 mt-0.5" />
@@ -411,11 +427,44 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenQuote })
         </div>
       </section>
 
-      {/* VALUES */}
-      <ValuesSection />
+      {/* COMMITMENT & STANDARDS */}
+      <section className="py-20 bg-slate-50 border-b border-slate-100">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal className="text-center max-w-2xl mx-auto mb-14 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-50 text-[#024BB2] text-xs font-bold uppercase tracking-wider">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#E5192D]" />
+              <span>Operational Commitments</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight font-display">
+              Our Principles in Action
+            </h2>
+            <p className="text-sm text-slate-600">
+              How our team in Thiruvalla safeguards every consignment across regional and international airspace.
+            </p>
+          </ScrollReveal>
 
-      {/* WHY SKYONE */}
-      <WhySkyOne />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-white p-7 rounded-2xl border border-slate-200 shadow-xs space-y-3">
+              <h3 className="text-lg font-bold text-slate-900">Direct Origin Custody</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                From doorstep collection in Kerala straight to airline airside handoff, packages remain in monitored chain of custody.
+              </p>
+            </div>
+            <div className="bg-white p-7 rounded-2xl border border-slate-200 shadow-xs space-y-3">
+              <h3 className="text-lg font-bold text-slate-900">Clear Customs Pre-Filing</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Export and import compliance checks completed prior to flight departure to prevent holds at destination hubs.
+              </p>
+            </div>
+            <div className="bg-white p-7 rounded-2xl border border-slate-200 shadow-xs space-y-3">
+              <h3 className="text-lg font-bold text-slate-900">Accountable Support</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Direct communication with our operations desk during operating hours without automated deflection.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* CLOSING CTA */}
       <section className="py-24 bg-gradient-to-br from-[#060f1e] via-[#0A1F38] to-[#060f1e] text-white text-center relative overflow-hidden">
@@ -457,7 +506,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenQuote })
           </div>
 
           <p className="text-slate-500 text-xs pt-2">
-            Doorstep pickup available across all Kerala districts &middot; 24/7 support &middot; Malayalam &amp; English
+            Doorstep pickup available across all Kerala districts &middot; Mon-Sat 8:30 AM-8:30 PM &middot; Malayalam &amp; English
           </p>
         </ScrollReveal>
       </section>

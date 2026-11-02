@@ -23,7 +23,7 @@ export const SKYONE_CONFIG = {
   corporateAddress: 'SkyOne International, SNDP Union Bldg, Ground Floor, Shop No 744, Near My G Showroom, M C Road, Thiruvalla, Pathanamthitta (Dt), Kerala 689101',
   
   // Business Hours
-  operatingHours: 'Monday - Saturday: 08:30 AM - 08:30 PM IST | 24/7 Operations Support',
+  operatingHours: 'Monday – Saturday: 08:30 AM – 08:30 PM IST',
   
   // Social Links
   socialLinks: {

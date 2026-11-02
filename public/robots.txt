@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://skyonecourier.com/sitemap.xml
+Sitemap: https://www.skyoneinternational.com/sitemap.xml

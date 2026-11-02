@@ -65,7 +65,10 @@ export const AboutHero: React.FC<AboutHeroProps> = ({ onNavigate }) => {
       <div className="absolute -bottom-8 left-0 w-full sm:w-[55%] h-[340px] pointer-events-none z-0 select-none overflow-hidden opacity-35 sm:opacity-45">
         <img
           src="/kerala_backwaters.jpg"
-          alt="Kerala backwaters reflection"
+          alt="Scenic view of Kerala backwaters symbolizing regional roots"
+          loading="lazy"
+          width="700"
+          height="340"
           className="w-full h-full object-cover object-bottom"
           style={{
             maskImage:
@@ -195,7 +198,9 @@ export const AboutHero: React.FC<AboutHeroProps> = ({ onNavigate }) => {
               <div className="relative aspect-[16/10.5] sm:aspect-[16/10] w-full overflow-hidden bg-slate-100">
                 <img
                   src="/kerala_courier_hero.jpg"
-                  alt="SkyOne Courier Delivery at Cochin International Airport cargo terminal"
+                  alt="SkyOne courier team member processing international shipment"
+                  width="640"
+                  height="420"
                   className="w-full h-full object-cover object-[55%_center] group-hover:scale-[1.02] transition-transform duration-700 ease-out"
                 />
 

@@ -35,10 +35,30 @@ export const FaqPage: React.FC<FaqPageProps> = ({ onNavigate, onOpenQuote }) => 
   return (
     <div className="py-14 bg-slate-50 min-h-screen">
       <SEO
-        title="International Courier FAQ — Kerala Shipping Questions Answered | SkyOne"
-        description="Answers to common questions about international courier from Kerala: delivery times to Dubai and UK, AWB tracking, customs documents, prohibited items and door-to-door pickup."
+        title="Frequently Asked Questions | SkyOne International Courier"
+        description="Answers to common questions about international courier from Kerala: delivery times to USA, UK and Dubai, AWB tracking, customs documents and door-to-door pickup."
         canonicalPath="/faq"
-        schema={faqSchema}
+        schema={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://www.skyoneinternational.com/'
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'FAQ',
+                item: 'https://www.skyoneinternational.com/faq'
+              }
+            ]
+          },
+          faqSchema
+        ]}
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -100,11 +120,10 @@ export const FaqPage: React.FC<FaqPageProps> = ({ onNavigate, onOpenQuote }) => 
                   </div>
                 </button>
 
-                {isOpen && (
-                  <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 animate-in fade-in-50">
-                    <p>{faq.answer}</p>
-                  </div>
-                )}
+                {/* Kept rendered in DOM for indexing */}
+                <div className={`${isOpen ? 'block' : 'hidden'} px-6 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100`}>
+                  <p>{faq.answer}</p>
+                </div>
               </div>
             );
           })}
@@ -116,7 +135,7 @@ export const FaqPage: React.FC<FaqPageProps> = ({ onNavigate, onOpenQuote }) => 
             Cannot find the answer to your shipping question?
           </h3>
           <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto">
-            Our international logistics support team is available 24/7 to clarify customs regulations and tariff guidelines.
+            Our international logistics support team is available Monday to Saturday, 08:30 AM to 08:30 PM IST to clarify customs regulations and tariff guidelines.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <button
