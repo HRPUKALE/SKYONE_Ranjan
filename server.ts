@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url';
 import helmet from 'helmet';
 import cors from 'cors';
 import { sendQuoteEmail, sendContactEmail } from './api/_mailer';
+import { appendCustomerSubmission } from './api/_googleSheets';
 
 dotenv.config();
 
@@ -741,6 +742,100 @@ app.post('/api/contact', leadRateLimiter, async (req, res) => {
     ticketId,
     message: 'Your inquiry ticket has been logged with our 24/7 operations desk. A SkyOne representative will respond shortly.'
   });
+});
+
+/**
+ * Server-side /api/submit-request route (Christmas campaign Google Sheets backend)
+ */
+const christmasSubmissionsCache = new Map<string, { lastSubmittedAt: number }>();
+
+app.post('/api/submit-request', leadRateLimiter, async (req, res) => {
+  try {
+    const {
+      customerName: rawCustomerName,
+      awbNumber: rawAwbNumber,
+      message: rawMessage,
+      _hp
+    } = req.body || {};
+
+    // 1. Silent honeypot drop for automated bots
+    if (_hp) {
+      return res.status(200).json({
+        success: true,
+        message: 'Your message has been received successfully.'
+      });
+    }
+
+    // 2. Data sanitization
+    const customerName = sanitizeString(rawCustomerName, 100);
+    const awbNumber = sanitizeString(rawAwbNumber, 60);
+    const message = sanitizeString(rawMessage, 3000);
+
+    // 3. Validation
+    if (!customerName || customerName.length < 2) {
+      return res.status(400).json({
+        success: false,
+        message: 'Please enter your full name.'
+      });
+    }
+
+    if (!awbNumber || awbNumber.length < 3) {
+      return res.status(400).json({
+        success: false,
+        message: 'Please enter a valid AWB or Tracking Number.'
+      });
+    }
+
+    if (!message || message.length < 3) {
+      return res.status(400).json({
+        success: false,
+        message: 'Please enter your message or requirements.'
+      });
+    }
+
+    // 4. Duplicate submission check (same AWB & client within 60s)
+    const clientIp = (req.ip || req.socket?.remoteAddress || 'unknown').toString();
+    const subHash = `${clientIp}:${awbNumber.toLowerCase()}:${message.slice(0, 50).toLowerCase()}`;
+    const prev = christmasSubmissionsCache.get(subHash);
+    const now = Date.now();
+    if (prev && now - prev.lastSubmittedAt < 60000) {
+      return res.status(400).json({
+        success: false,
+        message: 'You have recently submitted this request. Please wait a moment before sending again.'
+      });
+    }
+
+    // 5. Append to Google Sheets
+    const result = await appendCustomerSubmission({
+      customerName,
+      awbNumber,
+      message
+    });
+
+    christmasSubmissionsCache.set(subHash, { lastSubmittedAt: now });
+
+    return res.status(200).json({
+      success: true,
+      message: 'Your message has been received successfully. Our team at Skyone International appreciates you taking the time to connect with us.',
+      timestamp: result.timestamp
+    });
+
+  } catch (error: any) {
+    const errorMsg = error?.message || 'Internal server error';
+    console.error('[Submit Request Server Error]:', errorMsg);
+
+    if (errorMsg.includes('GOOGLE_SHEET_ID') || errorMsg.includes('GOOGLE_SERVICE_ACCOUNT_JSON')) {
+      return res.status(503).json({
+        success: false,
+        message: 'Google Sheets integration is currently being configured on the server. Please check back shortly.'
+      });
+    }
+
+    return res.status(500).json({
+      success: false,
+      message: 'We were unable to submit your request at this moment. Please check your connection or try again shortly.'
+    });
+  }
 });
 
 // Explicit 404 for undefined /api/* routes

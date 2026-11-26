@@ -20,6 +20,7 @@ const FaqPage = lazy(() => import('./pages/FaqPage').then(m => ({ default: m.Faq
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage').then(m => ({ default: m.PrivacyPage })));
 const TermsPage = lazy(() => import('./pages/TermsPage').then(m => ({ default: m.TermsPage })));
 const ProhibitedItemsPage = lazy(() => import('./pages/ProhibitedItemsPage').then(m => ({ default: m.ProhibitedItemsPage })));
+const ChristmasPage = lazy(() => import('./pages/ChristmasPage').then(m => ({ default: m.ChristmasPage })));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then(m => ({ default: m.NotFoundPage })));
 
 export default function App() {
@@ -134,6 +135,10 @@ export default function App() {
       );
     }
 
+    if (currentPath === '/christmas' || currentPath.startsWith('/christmas?') || currentPath.startsWith('/christmas/')) {
+      return <ChristmasPage />;
+    }
+
     if (currentPath === '/locations') {
       return (
         <AboutPage
@@ -146,26 +151,30 @@ export default function App() {
     return <NotFoundPage onNavigate={navigate} />;
   };
 
+  const isChristmas = currentPath === '/christmas' || currentPath.startsWith('/christmas?') || currentPath.startsWith('/christmas/');
+
   return (
-    <div className="min-h-screen flex flex-col bg-white text-slate-900 font-sans selection:bg-[#024BB2] selection:text-white">
+    <div className={`min-h-screen flex flex-col font-sans ${isChristmas ? 'bg-[#0a1f18]' : 'bg-white text-slate-900 selection:bg-[#024BB2] selection:text-white'}`}>
       {/* Navigation */}
-      <Navbar
-        currentPath={currentPath}
-        onNavigate={navigate}
-        onOpenQuote={() => setIsQuoteModalOpen(true)}
-        onOpenTrack={() => {
-          if (currentPath === '/') {
-            const el = document.getElementById('tracking-portal');
-            if (el) {
-              el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      {!isChristmas && (
+        <Navbar
+          currentPath={currentPath}
+          onNavigate={navigate}
+          onOpenQuote={() => setIsQuoteModalOpen(true)}
+          onOpenTrack={() => {
+            if (currentPath === '/') {
+              const el = document.getElementById('tracking-portal');
+              if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              } else {
+                navigate('/track');
+              }
             } else {
               navigate('/track');
             }
-          } else {
-            navigate('/track');
-          }
-        }}
-      />
+          }}
+        />
+      )}
 
       {/* Main Routed Page Content */}
       <main className="flex-1">
@@ -184,13 +193,15 @@ export default function App() {
       </main>
 
       {/* 16. Footer */}
-      <Footer
-        onNavigate={navigate}
-        onOpenQuote={() => setIsQuoteModalOpen(true)}
-      />
+      {!isChristmas && (
+        <Footer
+          onNavigate={navigate}
+          onOpenQuote={() => setIsQuoteModalOpen(true)}
+        />
+      )}
 
       {/* Floating WhatsApp Quick Action Button */}
-      <WhatsAppButton />
+      {!isChristmas && <WhatsAppButton />}
 
       {/* Quick Action Interactive Quote Request Modal */}
       <QuoteModal
