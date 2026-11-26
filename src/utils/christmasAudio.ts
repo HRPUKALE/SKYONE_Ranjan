@@ -16,7 +16,7 @@ class ChristmasAudioPlayer {
     if (!this.audio) {
       const audio = new Audio('/christmas-song.mp3');
       audio.loop = true;
-      audio.volume = 0.25; // Soft, comfortable background volume
+      audio.volume = 0.10; // Very soft, gentle background volume
       audio.preload = 'auto';
 
       audio.addEventListener('play', () => {
