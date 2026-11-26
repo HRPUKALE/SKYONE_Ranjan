@@ -13,7 +13,6 @@ import {
   Sparkles, 
   Loader2,
   AlertCircle,
-  Globe,
   ExternalLink
 } from 'lucide-react';
 import { SkyOneLogo } from '../components/SkyOneLogo';
@@ -555,10 +554,10 @@ export const ChristmasPage: React.FC = () => {
 
               {/* 3. Visit Official Website Card */}
               <div className="relative overflow-hidden rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-4 sm:p-5 text-white shadow-lg">
-                <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 shrink-0 rounded-xl bg-amber-400/20 border border-amber-300/30 flex items-center justify-center text-amber-200">
-                      <Globe className="w-5 h-5" />
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-3.5 text-center sm:text-left">
+                  <div className="flex flex-col sm:flex-row items-center gap-3">
+                    <div className="shrink-0 rounded-xl bg-white/95 px-2.5 py-1.5 shadow-md border border-white/40 flex items-center justify-center">
+                      <SkyOneLogo size="sm" />
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-white">Explore Skyone International</h4>
