@@ -39,8 +39,7 @@ interface FormErrors {
 
 export const ChristmasPage: React.FC = () => {
   // Audio state
-  const [isPlayingMusic, setIsPlayingMusic] = useState(false);
-  const [hasInteractedWithAudio, setHasInteractedWithAudio] = useState(false);
+  const [isPlayingMusic, setIsPlayingMusic] = useState(() => christmasAudio.isPlaying());
 
   // Form submission state
   const [formData, setFormData] = useState<FormState>({
@@ -55,43 +54,37 @@ export const ChristmasPage: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
 
-  // Background audio autoplay attempt on user entrance
+  // Background audio autoplay on page open + seamless fallback on first touch/click
   useEffect(() => {
-    // Attempt autoplay if browser allows
-    const startAudio = async () => {
-      const started = await christmasAudio.play();
-      if (started) {
-        setIsPlayingMusic(true);
-      }
-    };
-    startAudio();
+    const unsubscribe = christmasAudio.subscribe((playing) => {
+      setIsPlayingMusic(playing);
+    });
 
-    // Listen for any first user touch/click to activate audio smoothly if autoplay was blocked
+    // Attempt immediate autoplay
+    christmasAudio.play(false);
+
+    // If browser blocks unmuted autoplay, start on the user's very first interaction
+    // unless the user explicitly clicked the mute button.
     const handleFirstGesture = async () => {
-      if (!hasInteractedWithAudio && !christmasAudio.isPlaying()) {
-        const started = await christmasAudio.play();
-        if (started) {
-          setIsPlayingMusic(true);
-          setHasInteractedWithAudio(true);
-        }
+      if (!christmasAudio.isPlaying() && !christmasAudio.hasUserMuted()) {
+        await christmasAudio.play(true);
       }
     };
 
-    window.addEventListener('click', handleFirstGesture, { once: true });
-    window.addEventListener('touchstart', handleFirstGesture, { once: true });
+    window.addEventListener('pointerdown', handleFirstGesture, { passive: true });
+    window.addEventListener('keydown', handleFirstGesture, { passive: true });
 
     return () => {
-      christmasAudio.pause();
-      setIsPlayingMusic(false);
-      window.removeEventListener('click', handleFirstGesture);
-      window.removeEventListener('touchstart', handleFirstGesture);
+      unsubscribe();
+      christmasAudio.pause(false);
+      window.removeEventListener('pointerdown', handleFirstGesture);
+      window.removeEventListener('keydown', handleFirstGesture);
     };
-  }, [hasInteractedWithAudio]);
+  }, []);
 
-  const handleToggleMusic = () => {
-    setHasInteractedWithAudio(true);
-    const state = christmasAudio.toggle();
-    setIsPlayingMusic(state);
+  const handleToggleMusic = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    await christmasAudio.toggle();
   };
 
   const validate = (): boolean => {
@@ -170,9 +163,16 @@ export const ChristmasPage: React.FC = () => {
 
   return (
     <div className="relative min-h-screen w-full overflow-x-hidden bg-[#0a1f18] text-slate-100 font-sans selection:bg-[#E5192D] selection:text-white pb-16">
-      {/* 1. Rich Festive Background Layer */}
+      {/* 1. Rich Festive Background Layer (Responsive: Portrait on Mobile, Widescreen on Desktop) */}
       <div 
-        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
+        className="block md:hidden fixed inset-0 z-0 bg-cover bg-top bg-no-repeat transition-opacity duration-1000"
+        style={{
+          backgroundImage: `url('/christmas_bg_mobile.jpg')`,
+          filter: 'brightness(0.92)'
+        }}
+      />
+      <div 
+        className="hidden md:block fixed inset-0 z-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
         style={{
           backgroundImage: `url('/christmas_bg.jpg')`,
           filter: 'brightness(0.92)'
@@ -180,7 +180,7 @@ export const ChristmasPage: React.FC = () => {
       />
 
       {/* Atmospheric Winter Gradient Overlays */}
-      <div className="fixed inset-0 z-0 bg-gradient-to-b from-[#061510]/80 via-transparent to-[#050f0c]/90 pointer-events-none" />
+      <div className="fixed inset-0 z-0 bg-gradient-to-b from-[#061510]/70 via-[#061510]/15 to-[#050f0c]/85 pointer-events-none" />
       <div className="fixed inset-0 z-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-400/10 via-transparent to-transparent pointer-events-none" />
 
       {/* 2. Interactive Snowfall Canvas */}
@@ -208,7 +208,9 @@ export const ChristmasPage: React.FC = () => {
             <>
               <Volume2 className="w-4 h-4 text-emerald-400 animate-pulse" />
               <span>Music On</span>
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping ml-0.5" />
+              <span className="text-[10px] sm:text-xs text-emerald-300/80 border-l border-emerald-500/30 pl-2 ml-0.5">
+                Mute
+              </span>
             </>
           ) : (
             <>
