@@ -75,33 +75,26 @@ export default async function handler(req: any, res: any) {
 
     // 3. Data sanitization
     const customerName = sanitizeString(rawCustomerName, 100);
-    const awbNumber = sanitizeString(rawAwbNumber, 60);
+    const awbNumber = sanitizeString(rawAwbNumber, 60) || '-';
     const message = sanitizeString(rawMessage, 3000);
 
     // 4. Validation
     if (!customerName || customerName.length < 2) {
       return res.status(400).json({
         success: false,
-        message: 'Please enter your full name.'
-      });
-    }
-
-    if (!awbNumber || awbNumber.length < 3) {
-      return res.status(400).json({
-        success: false,
-        message: 'Please enter a valid AWB or Tracking Number.'
+        message: 'Please enter your name.'
       });
     }
 
     if (!message || message.length < 3) {
       return res.status(400).json({
         success: false,
-        message: 'Please enter your message or requirements.'
+        message: 'Please share your Christmas wish with us.'
       });
     }
 
-    // 5. Duplicate submission check (same AWB & message within 60 seconds)
-    const submissionHash = `${clientIp}:${awbNumber.toLowerCase()}:${message.slice(0, 50).toLowerCase()}`;
+    // 5. Duplicate submission check (same sender & wish within 60 seconds)
+    const submissionHash = `${clientIp}:${customerName.toLowerCase()}:${awbNumber.toLowerCase()}:${message.slice(0, 50).toLowerCase()}`;
     const previous = submissionHistory.get(submissionHash);
     if (previous && now - previous.lastSubmittedAt < 60000) {
       return res.status(400).json({
@@ -134,7 +127,7 @@ export default async function handler(req: any, res: any) {
 
     return res.status(200).json({
       success: true,
-      message: 'Your message has been received successfully. Our team at Skyone International appreciates you taking the time to connect with us.',
+      message: 'Your Christmas wish has been received! Thank you for sharing your happiness with Skyone International.',
       timestamp: result.timestamp
     });
 

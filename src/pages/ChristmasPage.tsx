@@ -94,25 +94,18 @@ export const ChristmasPage: React.FC = () => {
   const validate = (): boolean => {
     const errors: FormErrors = {};
     const cleanName = formData.customerName.trim();
-    const cleanAwb = formData.awbNumber.trim();
     const cleanMsg = formData.message.trim();
 
     if (!cleanName) {
-      errors.customerName = 'Please enter your full name.';
+      errors.customerName = 'Please enter your name.';
     } else if (cleanName.length < 2) {
       errors.customerName = 'Name must be at least 2 characters.';
     }
 
-    if (!cleanAwb) {
-      errors.awbNumber = 'Please enter your AWB or Tracking Number.';
-    } else if (cleanAwb.length < 3) {
-      errors.awbNumber = 'AWB / Tracking Number must be at least 3 characters.';
-    }
-
     if (!cleanMsg) {
-      errors.message = 'Please share your requirements or feedback with us.';
-    } else if (cleanMsg.length < 5) {
-      errors.message = 'Message must be at least 5 characters.';
+      errors.message = 'Please share your Christmas wish with us.';
+    } else if (cleanMsg.length < 3) {
+      errors.message = 'Your wish must be at least 3 characters.';
     }
 
     setFormErrors(errors);
@@ -254,7 +247,7 @@ export const ChristmasPage: React.FC = () => {
           </h1>
 
           <p className="mt-1.5 text-xs sm:text-[13px] text-emerald-100/90 leading-snug font-medium drop-shadow-sm px-2">
-            Thank you for choosing Skyone International. We're delighted to be a part of your journey. Share your message or requirements with us!
+            Thank you for choosing Skyone International. We're delighted to be a part of your journey. This Christmas, we'd love to hear your wishes, hopes, and heartfelt messages. Share a little happiness with us!
           </p>
         </div>
 
@@ -287,6 +280,18 @@ export const ChristmasPage: React.FC = () => {
                 {/* Inner White Card */}
                 <div className="bg-white rounded-[22px] px-5 py-5 sm:px-7 sm:py-5 text-slate-800 shadow-inner relative">
                   
+                  {/* Festive Form Heading */}
+                  <div className="text-center mb-3.5 pt-1">
+                    <h2
+                      className="text-lg sm:text-xl font-bold text-[#0c3b28] tracking-tight flex items-center justify-center gap-2"
+                      style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+                    >
+                      <span>🎀</span>
+                      <span>Make a Christmas Wish</span>
+                    </h2>
+                    <div className="mt-1.5 mx-auto w-16 h-0.5 rounded-full bg-gradient-to-r from-[#E5192D] via-amber-400 to-[#0c3b28]" />
+                  </div>
+
                   {serverError && (
                     <div className="mb-3 p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs sm:text-sm flex items-start gap-2.5">
                       <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
@@ -335,7 +340,7 @@ export const ChristmasPage: React.FC = () => {
                               setFormErrors({ ...formErrors, customerName: undefined });
                             }
                           }}
-                          placeholder="Enter your full name."
+                          placeholder="Enter your name"
                           disabled={isSubmitting}
                           className={`w-full px-3.5 py-2 sm:py-2.5 rounded-xl border text-slate-900 text-sm font-medium placeholder:text-slate-400 bg-slate-50/50 transition-all focus:bg-white focus:outline-none focus:ring-2 ${
                             formErrors.customerName
@@ -351,7 +356,7 @@ export const ChristmasPage: React.FC = () => {
                       )}
                     </div>
 
-                    {/* FIELD 2: AWB / Tracking Number */}
+                    {/* FIELD 2: AWB / Tracking Number (Optional) */}
                     <div>
                       <label 
                         htmlFor="awbNumber"
@@ -360,13 +365,12 @@ export const ChristmasPage: React.FC = () => {
                         <span className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-slate-600">
                           <Package className="w-3.5 h-3.5" />
                         </span>
-                        <span>AWB / Tracking Number <strong className="text-red-500">*</strong></span>
+                        <span>AWB / Tracking Number</span>
                       </label>
                       <div className="relative">
                         <input
                           id="awbNumber"
                           type="text"
-                          required
                           value={formData.awbNumber}
                           onChange={(e) => {
                             setFormData({ ...formData, awbNumber: e.target.value });
@@ -374,7 +378,7 @@ export const ChristmasPage: React.FC = () => {
                               setFormErrors({ ...formErrors, awbNumber: undefined });
                             }
                           }}
-                          placeholder="Enter your AWB or Tracking Number."
+                          placeholder="Enter your tracking number (Optional)"
                           disabled={isSubmitting}
                           className={`w-full px-3.5 py-2 sm:py-2.5 rounded-xl border text-slate-900 text-sm font-medium placeholder:text-slate-400 bg-slate-50/50 transition-all focus:bg-white focus:outline-none focus:ring-2 ${
                             formErrors.awbNumber
@@ -390,7 +394,7 @@ export const ChristmasPage: React.FC = () => {
                       )}
                     </div>
 
-                    {/* FIELD 3: Message / Requirements */}
+                    {/* FIELD 3: Christmas Wish */}
                     <div>
                       <label 
                         htmlFor="message"
@@ -399,7 +403,7 @@ export const ChristmasPage: React.FC = () => {
                         <span className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-slate-600">
                           <MessageSquare className="w-3.5 h-3.5" />
                         </span>
-                        <span>Your Message / Requirements <strong className="text-red-500">*</strong></span>
+                        <span>Your Christmas Wish <strong className="text-red-500">*</strong></span>
                       </label>
                       <div className="relative">
                         <textarea
@@ -413,7 +417,7 @@ export const ChristmasPage: React.FC = () => {
                               setFormErrors({ ...formErrors, message: undefined });
                             }
                           }}
-                          placeholder="Tell us about your requirements, queries, feedback, or anything you would like to share with Skyone International..."
+                          placeholder="What's your wish for this Christmas or the coming New Year? Share your dreams, wishes, or a heartfelt message with us..."
                           disabled={isSubmitting}
                           className={`w-full px-3.5 py-2 sm:py-2.5 rounded-xl border text-slate-900 text-sm font-medium placeholder:text-slate-400 bg-slate-50/50 transition-all focus:bg-white focus:outline-none focus:ring-2 resize-none ${
                             formErrors.message
@@ -439,21 +443,21 @@ export const ChristmasPage: React.FC = () => {
                         {isSubmitting ? (
                           <>
                             <Loader2 className="w-5 h-5 animate-spin" />
-                            <span>Submitting Your Message...</span>
+                            <span>Sending Your Wish...</span>
                           </>
                         ) : (
                           <>
                             <Send className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                            <span>Submit Your Message →</span>
+                            <span>Send My Wish ❤️</span>
                           </>
                         )}
                       </button>
                     </div>
 
                     {/* Privacy & Security Note */}
-                    <div className="pt-1 flex items-center justify-center gap-1.5 text-xs text-slate-500 font-medium">
-                      <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                      <span>Your information is safe with us.</span>
+                    <div className="pt-1 flex items-center justify-center gap-1.5 text-xs text-slate-500 font-medium text-center">
+                      <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                      <span>Your wishes are special to us. Your information is safe with us.</span>
                     </div>
                   </form>
                 </div>
@@ -480,15 +484,15 @@ export const ChristmasPage: React.FC = () => {
 
                 {/* Heading in Elegant Festive Script */}
                 <h2 
-                  className="text-2xl sm:text-3xl md:text-4xl font-bold text-emerald-900 leading-tight mb-3"
+                  className="text-2xl sm:text-3xl font-bold text-emerald-900 leading-tight mb-3"
                   style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
                 >
-                  Thank You for Connecting With Us!
+                  🎄 Your Christmas wish has been received!
                 </h2>
 
                 {/* Supporting Confirmation Text */}
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium max-w-md mx-auto">
-                  Your message has been received successfully. Our team at Skyone International appreciates you taking the time to connect with us.
+                  Thank you for sharing your happiness with Skyone International. May your Christmas be filled with love, joy and beautiful moments. ❤️
                 </p>
 
                 {/* Festive Greeting Line */}

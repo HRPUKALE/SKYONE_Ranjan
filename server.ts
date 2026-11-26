@@ -768,34 +768,27 @@ app.post('/api/submit-request', leadRateLimiter, async (req, res) => {
 
     // 2. Data sanitization
     const customerName = sanitizeString(rawCustomerName, 100);
-    const awbNumber = sanitizeString(rawAwbNumber, 60);
+    const awbNumber = sanitizeString(rawAwbNumber, 60) || '-';
     const message = sanitizeString(rawMessage, 3000);
 
     // 3. Validation
     if (!customerName || customerName.length < 2) {
       return res.status(400).json({
         success: false,
-        message: 'Please enter your full name.'
-      });
-    }
-
-    if (!awbNumber || awbNumber.length < 3) {
-      return res.status(400).json({
-        success: false,
-        message: 'Please enter a valid AWB or Tracking Number.'
+        message: 'Please enter your name.'
       });
     }
 
     if (!message || message.length < 3) {
       return res.status(400).json({
         success: false,
-        message: 'Please enter your message or requirements.'
+        message: 'Please share your Christmas wish with us.'
       });
     }
 
-    // 4. Duplicate submission check (same AWB & client within 60s)
+    // 4. Duplicate submission check (same sender & wish within 60s)
     const clientIp = (req.ip || req.socket?.remoteAddress || 'unknown').toString();
-    const subHash = `${clientIp}:${awbNumber.toLowerCase()}:${message.slice(0, 50).toLowerCase()}`;
+    const subHash = `${clientIp}:${customerName.toLowerCase()}:${awbNumber.toLowerCase()}:${message.slice(0, 50).toLowerCase()}`;
     const prev = christmasSubmissionsCache.get(subHash);
     const now = Date.now();
     if (prev && now - prev.lastSubmittedAt < 60000) {
@@ -816,7 +809,7 @@ app.post('/api/submit-request', leadRateLimiter, async (req, res) => {
 
     return res.status(200).json({
       success: true,
-      message: 'Your message has been received successfully. Our team at Skyone International appreciates you taking the time to connect with us.',
+      message: 'Your Christmas wish has been received! Thank you for sharing your happiness with Skyone International.',
       timestamp: result.timestamp
     });
 
